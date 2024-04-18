@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS SUBJECTS;
+DROP TABLE IF EXISTS MARKS;
+
+CREATE TABLE SUBJECTS (
+	subject_id BIGINT NOT NULL,
+	subject_name VARCHAR(50),
+	PRIMARY KEY(subject_id)
+);
+
+CREATE TABLE MARKS (
+	subject_id BIGINT NOT NULL,
+	student_name  VARCHAR(50) NOT NULL,
+	mark INT DEFAULT 0,
+	PRIMARY KEY(subject_id, student_name)
+);
+
