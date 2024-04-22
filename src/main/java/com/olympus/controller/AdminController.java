@@ -2,6 +2,7 @@ package com.olympus.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class AdminController {
         }
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/admin/{id}")
     public Admin updateAdminById(@PathVariable Long id, @RequestBody Admin adminRequest) {
         return adminRepository.findById(id).map(admin -> {
             admin.setName(adminRequest.getName());
@@ -37,5 +38,10 @@ public class AdminController {
             return adminRepository.save(admin);
         }).orElseThrow(
                 () -> new ResourceNotFoundException("User not found with id " + id));
+    }
+
+    @PostMapping("/admin")
+    public Admin createAdmin(@RequestBody Admin userRequest) {
+        return adminRepository.save(userRequest);
     }
 }
