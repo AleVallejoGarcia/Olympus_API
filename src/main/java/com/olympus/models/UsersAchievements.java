@@ -1,13 +1,13 @@
 package com.olympus.models;
 
-public class Users_Achievements_Table {
+public class UsersAchievements {
     private long fk_user_id;
     private long fk_achievement_id;
 
-    public Users_Achievements_Table() {
+    public UsersAchievements() {
     }
 
-    public Users_Achievements_Table(long fk_user_id, long fk_achievement_id) {
+    public UsersAchievements(long fk_user_id, long fk_achievement_id) {
         super();
         this.fk_user_id = fk_user_id;
         this.fk_achievement_id = fk_achievement_id;
