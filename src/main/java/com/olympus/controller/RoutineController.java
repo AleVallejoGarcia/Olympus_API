@@ -1,5 +1,7 @@
 package com.olympus.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,7 @@ public class RoutineController {
     RoutineRepository routineRepository;
 
     @GetMapping("/routines/{userId}")
-    public Routine getRoutineByUsedId(@PathVariable Long userId) {
+    public List<Routine> getRoutineByUsedId(@PathVariable Long userId) {
         return routineRepository.findByUserId(userId);
     }
 
