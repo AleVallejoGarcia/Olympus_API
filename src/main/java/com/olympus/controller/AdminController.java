@@ -1,6 +1,8 @@
 package com.olympus.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,6 +22,7 @@ public class AdminController {
     @Autowired
     AdminRepository adminRepository;
 
+    @DeleteMapping()
     public void deleteAdmin(@PathVariable Long id) {
         try {
             adminRepository.deleteById(id);
@@ -28,6 +31,12 @@ public class AdminController {
         }
     }
 
+    @GetMapping("/admins/{name}")
+    public Admin getAdminByName(@PathVariable String name) {
+    	return adminRepository.findByName(name);
+    }
+    
+    
     @PutMapping("/admin/{id}")
     public Admin updateAdminById(@PathVariable Long id, @RequestBody Admin adminRequest) {
         return adminRepository.findById(id).map(admin -> {
