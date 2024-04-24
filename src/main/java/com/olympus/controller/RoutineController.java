@@ -1,5 +1,8 @@
 package com.olympus.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,18 +19,16 @@ public class RoutineController {
 
     @Autowired
     RoutineRepository routineRepository;
-
-    @GetMapping("/routines/{userId}")
-    public Routine getRoutineByUsedId(@PathVariable Long userId) {
-        return routineRepository.findByUserId(userId);
+    
+    @GetMapping("/routines")
+    public List<Routine> getAllRoutines() {
+        return routineRepository.findAll();
     }
 
-    @DeleteMapping("/routines/{id}")
-    public void deleteRoutine(@PathVariable Long id) {
-        try {
-            routineRepository.deleteById(id);
-        } catch (Exception e) {
-            System.out.println("Routine Id " + id + " not found");
-        }
+    @GetMapping("/routines/{id}")
+    public Optional<Routine> getRoutineById(@PathVariable Long id) {
+        return routineRepository.findById(id);
     }
+
+    
 }
