@@ -9,26 +9,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.olympus.models.Achievement;
 import com.olympus.models.MuscleZone;
-import com.olympus.repositories.AchievementsRepository;
 import com.olympus.repositories.MuscleZoneRepository;
 
 @RestController
 @RequestMapping("/olympus/v1")
 public class MuscleZoneController {
 
-	@Autowired
+    @Autowired
     MuscleZoneRepository muscleZoneRepository;
-    
+
     @GetMapping("/muscle_zone")
     public List<MuscleZone> getAllMuscleZones() {
         return muscleZoneRepository.findAll();
     }
-    
+
     @GetMapping("/muscle_zone/{id}")
     public Optional<MuscleZone> getMuscleZonesById(@PathVariable Long id) {
         return muscleZoneRepository.findById(id);
     }
-	
+
 }
