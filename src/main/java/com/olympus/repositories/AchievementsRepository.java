@@ -1,14 +1,13 @@
 package com.olympus.repositories;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.olympus.models.Admin;
+import com.olympus.models.Achievement;
+
 
 @Repository
-
-public interface AdminRepository extends JpaRepository<Admin, Long> {
-
-	Admin findByName(String name);
+public interface AchievementsRepository extends JpaRepository<Achievement, Long> {
 
 }
