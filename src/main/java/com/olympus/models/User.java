@@ -1,11 +1,36 @@
 package com.olympus.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+import jakarta.persistence.Column;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+@Table(name = "users")
 public class User {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private long userId;
+
+    @Column(nullable = false, length = 30)
     private String name;
+
+    @Column(nullable = false, length = 30)
     private String mail;
+
+    @Column(nullable = false, length = 30)
     private String password;
+
+    @Column(nullable = false, length = 30)
     private float height;
+
+    @Column(nullable = false, length = 30)
     private float weight;
 
     public User() {
@@ -20,12 +45,12 @@ public class User {
         this.weight = weight;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.userId = id;
     }
 
     public String getName() {
@@ -70,7 +95,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Actor [id=" + id + ", name=" + name + ", mail=" + mail
+        return "Actor [id=" + userId + ", name=" + name + ", mail=" + mail
                 + "]";
     }
 }

@@ -1,10 +1,28 @@
 package com.olympus.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "admins")
 public class Admin {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "admin_id")
+    private long adminId;
+
+    @Column(nullable = false, length = 30)
     private String name;
+
+    @Column(nullable = false, length = 20)
     private String mail;
+
+    @Column(nullable = false, length = 20)
     private String password;
 
     public Admin() {
@@ -17,12 +35,12 @@ public class Admin {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public Long getAdminId() {
+        return adminId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.adminId = id;
     }
 
     public String getName() {
@@ -51,7 +69,7 @@ public class Admin {
 
     @Override
     public String toString() {
-        return "Actor [id=" + id + ", name=" + name + ", mail=" + mail
+        return "Actor [id=" + adminId + ", name=" + name + ", mail=" + mail
                 + "]";
     }
 }

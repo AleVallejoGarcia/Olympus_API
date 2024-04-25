@@ -1,9 +1,28 @@
 package com.olympus.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "achievements")
 public class Achievement {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "achievement_id")
     private long id;
+
+    @Column(nullable = false, length = 200)
     private String description;
+
+    @Column(nullable = true, length = 200)
     private String urlImage;
+
+    @Column(nullable = true)
     private Boolean gived;
 
     public Achievement() {

@@ -1,11 +1,50 @@
 package com.olympus.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "exercises")
 public class Exercise {
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "exercise_id")
+    private long exerciseId;
+
+    @Column(nullable = false, length = 30)
     private String name;
+
+    @Column(nullable = false, length = 200)
     private String description;
+
+    @Column(nullable = false, length = 200)
     private String urlImage;
-    private long fk_muscle_zone_id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "fk_muscle_zone_id", nullable = false)
+    @JsonIgnore
+    private MuscleZone muscleZone;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinTable(name = "exercise_routine_table", joinColumns = @JoinColumn(name = "fk_exercise_id"), inverseJoinColumns = @JoinColumn(name = "fk_routine_id"))
+    @JsonIgnore
+    private Set<Routine> routines = new HashSet<>();
 
     public Exercise() {
     }
@@ -15,15 +54,14 @@ public class Exercise {
         this.name = name;
         this.description = description;
         this.urlImage = urlImage;
-        this.fk_muscle_zone_id = fk_muscle_zone_id;
     }
 
-    public Long getId() {
-        return id;
+    public Long getExerciseId() {
+        return exerciseId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.exerciseId = id;
     }
 
     public String getName() {
@@ -50,17 +88,25 @@ public class Exercise {
         this.urlImage = mail;
     }
 
-    public long getFk_muscle_zone_id() {
-        return fk_muscle_zone_id;
+    public MuscleZone getMuscleZone() {
+        return muscleZone;
     }
 
-    public void setFk_muscle_zone_id(long fk_muscle_zone_id) {
-        this.fk_muscle_zone_id = fk_muscle_zone_id;
+    public void setMucleZone(MuscleZone muscleZone) {
+        this.muscleZone = muscleZone;
+    }
+
+    public Set<Routine> getRoutines() {
+        return routines;
+    }
+
+    public void setRoutines(Set<Routine> routines) {
+        this.routines = routines;
     }
 
     @Override
     public String toString() {
-        return "Routine [id=" + id + ", name=" + name + ", fk_muscle_zone_id=" + fk_muscle_zone_id
+        return "Routine [id=" + exerciseId + ", name=" + name
 
                 + "]";
     }
