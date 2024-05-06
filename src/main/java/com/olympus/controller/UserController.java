@@ -29,7 +29,7 @@ public class UserController {
 
     @GetMapping("/user/{userName}")
     public User getUser(@PathVariable String userName) {
-        return userRepository.findByName(userName);
+        return userRepository.findByUserName(userName);
     }
     
     @PostMapping("/user")

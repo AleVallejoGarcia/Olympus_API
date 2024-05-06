@@ -11,5 +11,5 @@ import com.olympus.models.Exercise;
 public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     List<Exercise> findAllByMuscleZoneId(Long muscle_zone_id);
     
-    List<Exercise> findAllByRoutineId(Long routine_id);
+    List<Exercise> findAllByRoutinesId(Long routineId);
 }

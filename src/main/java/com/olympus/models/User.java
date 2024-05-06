@@ -42,11 +42,11 @@ public class User {
 
     @Column(nullable = false, length = 30)
     private float userWeight;
-
+    
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "exercise_routine_table", joinColumns = @JoinColumn(name = "fk_user_id"), inverseJoinColumns = @JoinColumn(name = "Id"))
+    @JoinTable(name = "users_achievements_table", joinColumns = @JoinColumn(name = "fk_user_id"), inverseJoinColumns = @JoinColumn(name = "fk_achievement_id"))
     @JsonIgnore
-    private Set<Routine> routines = new HashSet<>();
+    private Set<Achievement> achievements = new HashSet<>();
 
     public User() {
     }

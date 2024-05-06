@@ -36,7 +36,7 @@ public class ExerciseController {
     
     @GetMapping("/routines/{routineId}/exercises")
     public List<Exercise> getAllExercisesFromaRoutineById(@PathVariable Long routineId) {
-        return exerciseRepository.findAllByRoutineId(routineId);
+        return exerciseRepository.findAllByRoutinesId(routineId);
     }
 
 }
