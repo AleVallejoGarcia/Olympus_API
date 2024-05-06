@@ -37,9 +37,9 @@ public class RoutineController {
         return routineRepository.findByUserId(userId);
     }
  
-    @GetMapping("/routines/{id}")
-    public Optional<Routine> getRoutineById(@PathVariable Long id) {
-        return routineRepository.findById(id);
+    @GetMapping("/routines/{routineId}")
+    public Optional<Routine> getRoutineByRoutineId(@PathVariable Long routineId) {
+        return routineRepository.findById(routineId);
     }
 
     @PostMapping("/routines/{userId}")

@@ -28,10 +28,10 @@ public class Exercise {
     private long exerciseId;
 
     @Column(nullable = false, length = 30)
-    private String name;
+    private String exerciseName;
 
     @Column(nullable = false, length = 200)
-    private String description;
+    private String exerciseDescription;
 
     @Column(nullable = false, length = 200)
     private String urlImage;
@@ -49,10 +49,10 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String name, String description, String urlImage, long fk_muscle_zone_id) {
+    public Exercise(String exerciseName, String exerciseDescription, String urlImage, long fk_muscle_zone_id) {
         super();
-        this.name = name;
-        this.description = description;
+        this.exerciseName = exerciseName;
+        this.exerciseDescription = exerciseDescription;
         this.urlImage = urlImage;
     }
 
@@ -64,20 +64,20 @@ public class Exercise {
         this.exerciseId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getexerciseName() {
+        return exerciseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setexerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getexerciseDescription() {
+        return exerciseDescription;
     }
 
-    public void setDescription(String name) {
-        this.description = name;
+    public void setexerciseDescription(String name) {
+        this.exerciseDescription = name;
     }
 
     public String getUrlImage() {
@@ -102,12 +102,5 @@ public class Exercise {
 
     public void setRoutines(Set<Routine> routines) {
         this.routines = routines;
-    }
-
-    @Override
-    public String toString() {
-        return "Routine [id=" + exerciseId + ", name=" + name
-
-                + "]";
     }
 }

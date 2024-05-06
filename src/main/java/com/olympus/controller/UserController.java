@@ -27,9 +27,9 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/user/{name}")
-    public User getUser(@PathVariable String name) {
-        return userRepository.findByName(name);
+    @GetMapping("/user/{userName}")
+    public User getUser(@PathVariable String userName) {
+        return userRepository.findByName(userName);
     }
     
     @PostMapping("/user")
@@ -37,27 +37,27 @@ public class UserController {
     	return userRepository.save(userRequest);
     }
     
-    @PutMapping("/user/{id}")
-    public User updateUserById(@PathVariable Long id , @RequestBody User userRequest) {
-    	return userRepository.findById(id).map( user -> {
-            user.setName(userRequest.getName());
-            user.setMail(userRequest.getMail());
-            user.setPassword(userRequest.getPassword());
-            user.setHeight(userRequest.getHeight());
-            user.setWeight(userRequest.getWeight());
+    @PutMapping("/user/{userId}")
+    public User updateUserById(@PathVariable Long userId , @RequestBody User userRequest) {
+    	return userRepository.findById(userId).map( user -> {
+            user.setuserName(userRequest.getuserName());
+            user.setuserMail(userRequest.getuserMail());
+            user.setuserPassword(userRequest.getuserPassword());
+            user.setuserHeight(userRequest.getuserHeight());
+            user.setuserWeight(userRequest.getuserWeight());
             
             return userRepository.save(user);
             }).orElseThrow(
-            () -> new ResourceNotFoundException("User not found with id " + id)
+            () -> new ResourceNotFoundException("User not found with id " + userId)
             );
     }
     
-    @DeleteMapping("/user/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    @DeleteMapping("/user/{userId}")
+    public void deleteUser(@PathVariable Long userId) {
     	try {
-			userRepository.deleteById(id);
+			userRepository.deleteById(userId);
 		} catch (Exception e) {
-			System.out.println("User Id " + id + " not found");
+			System.out.println("User Id " + userId + " not found");
 		}
     }
     

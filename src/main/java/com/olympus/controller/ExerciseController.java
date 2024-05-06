@@ -24,9 +24,9 @@ public class ExerciseController {
     	return exerciseRepository.findAll();
     }
     
-    @GetMapping("/exercises/{id}")
-    public Optional<Exercise> getAllExercises(@PathVariable Long id){
-    	return exerciseRepository.findById(id);
+    @GetMapping("/exercises/{exerciseId}")
+    public Optional<Exercise> getAllExercises(@PathVariable Long exerciseId){
+    	return exerciseRepository.findById(exerciseId);
     }
     
     @GetMapping("/exercises/{muscleZoneId}")
@@ -34,9 +34,9 @@ public class ExerciseController {
         return exerciseRepository.findAllByMuscleZoneId(muscleZoneId);
     }
     
-    @GetMapping("/routines/{id}/exercises")
-    public List<Exercise> getAllExercisesFromaRoutineById(@PathVariable Long id) {
-        return exerciseRepository.findAllByRoutineId(id);
+    @GetMapping("/routines/{routineId}/exercises")
+    public List<Exercise> getAllExercisesFromaRoutineById(@PathVariable Long routineId) {
+        return exerciseRepository.findAllByRoutineId(routineId);
     }
 
 }

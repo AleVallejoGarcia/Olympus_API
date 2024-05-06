@@ -29,19 +29,19 @@ public class User {
     private long userId;
 
     @Column(nullable = false, length = 30)
-    private String name;
+    private String userName;
 
     @Column(nullable = false, length = 30)
-    private String mail;
+    private String userMail;
 
     @Column(nullable = false, length = 30)
-    private String password;
+    private String userPassword;
 
     @Column(nullable = false, length = 30)
-    private float height;
+    private float userHeight;
 
     @Column(nullable = false, length = 30)
-    private float weight;
+    private float userWeight;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "exercise_routine_table", joinColumns = @JoinColumn(name = "fk_user_id"), inverseJoinColumns = @JoinColumn(name = "Id"))
@@ -51,13 +51,13 @@ public class User {
     public User() {
     }
 
-    public User(String name, String mail, String password, float height, float weight) {
+    public User(String userName, String userMail, String userPassword, float userHeight, float userWeight) {
         super();
-        this.name = name;
-        this.mail = mail;
-        this.password = password;
-        this.height = height;
-        this.weight = weight;
+        this.userName = userName;
+        this.userMail = userMail;
+        this.userPassword = userPassword;
+        this.userHeight = userHeight;
+        this.userWeight = userWeight;
     }
 
     public Long getUserId() {
@@ -68,49 +68,45 @@ public class User {
         this.userId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getuserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setuserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getMail() {
-        return mail;
+    public String getuserMail() {
+        return userMail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setuserMail(String userMail) {
+        this.userMail = userMail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getuserPassword() {
+        return userPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setuserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public float getHeight() {
-        return height;
+    public float getuserHeight() {
+        return userHeight;
     }
 
-    public void setHeight(float height) {
-        this.height = height;
+    public void setuserHeight(float userHeight) {
+        this.userHeight = userHeight;
     }
 
-    public float getWeight() {
-        return weight;
+    public float getuserWeight() {
+        return userWeight;
     }
 
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setuserWeight(float userWeight) {
+        this.userWeight = userWeight;
     }
 
-    @Override
-    public String toString() {
-        return "Actor [id=" + userId + ", name=" + name + ", mail=" + mail
-                + "]";
-    }
+    
 }

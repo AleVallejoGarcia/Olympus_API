@@ -24,8 +24,8 @@ public class AchievementController {
         return achievementsRepository.findAll();
     }
 
-    @GetMapping("/achievements/{id}")
-    public Optional<Achievement> getAchievementById(@PathVariable Long id) {
-        return achievementsRepository.findById(id);
+    @GetMapping("/achievements/{achievementId}")
+    public Optional<Achievement> getAchievementByAchievementId(@PathVariable Long achievementId) {
+        return achievementsRepository.findById(achievementId);
     }
 }

@@ -22,31 +22,31 @@ public class AdminController {
     @Autowired
     AdminRepository adminRepository;
 
-    @DeleteMapping()
-    public void deleteAdmin(@PathVariable Long id) {
+    @DeleteMapping("/admins/{adminId}")
+    public void deleteAdmin(@PathVariable Long adminId) {
         try {
-            adminRepository.deleteById(id);
+            adminRepository.deleteById(adminId);
         } catch (Exception e) {
-            System.out.println("Admin Id " + id + " not found");
+            System.out.println("Admin Id " + adminId + " not found");
         }
     }
 
-    @GetMapping("/admins/{name}")
-    public Admin getAdminByName(@PathVariable String name) {
-    	return adminRepository.findByName(name);
+    @GetMapping("/admins/{adminName}")
+    public Admin getAdminByName(@PathVariable String adminName) {
+    	return adminRepository.findByadminName(adminName);
     }
     
     
-    @PutMapping("/admin/{id}")
-    public Admin updateAdminById(@PathVariable Long id, @RequestBody Admin adminRequest) {
-        return adminRepository.findById(id).map(admin -> {
-            admin.setName(adminRequest.getName());
-            admin.setMail(adminRequest.getMail());
-            admin.setPassword(adminRequest.getPassword());
+    @PutMapping("/admins/{adminId}")
+    public Admin updateAdminById(@PathVariable Long adminId, @RequestBody Admin adminRequest) {
+        return adminRepository.findById(adminId).map(admin -> {
+            admin.setadminName(adminRequest.getadminName());
+            admin.setadminMail(adminRequest.getadminMail());
+            admin.setadminPassword(adminRequest.getadminPassword());
 
             return adminRepository.save(admin);
         }).orElseThrow(
-                () -> new ResourceNotFoundException("User not found with id " + id));
+                () -> new ResourceNotFoundException("User not found with id " + adminId));
     }
 
     @PostMapping("/admin")

@@ -17,22 +17,22 @@ public class Admin {
     private long adminId;
 
     @Column(nullable = false, length = 30)
-    private String name;
+    private String adminName;
 
     @Column(nullable = false, length = 20)
-    private String mail;
+    private String adminMail;
 
     @Column(nullable = false, length = 20)
-    private String password;
+    private String adminPassword;
 
     public Admin() {
     }
 
-    public Admin(String name, String mail, String password) {
+    public Admin(String adminName, String adminMail, String adminPassword) {
         super();
-        this.name = name;
-        this.mail = mail;
-        this.password = password;
+        this.adminName = adminName;
+        this.adminMail = adminMail;
+        this.adminPassword = adminPassword;
     }
 
     public Long getAdminId() {
@@ -43,33 +43,27 @@ public class Admin {
         this.adminId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getadminName() {
+        return adminName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setadminName(String adminName) {
+        this.adminName = adminName;
     }
 
-    public String getMail() {
-        return mail;
+    public String getadminMail() {
+        return adminMail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setadminMail(String adminMail) {
+        this.adminMail = adminMail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getadminPassword() {
+        return adminPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Actor [id=" + adminId + ", name=" + name + ", mail=" + mail
-                + "]";
+    public void setadminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
     }
 }

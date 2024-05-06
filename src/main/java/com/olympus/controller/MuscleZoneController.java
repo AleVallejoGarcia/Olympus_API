@@ -24,9 +24,9 @@ public class MuscleZoneController {
         return muscleZoneRepository.findAll();
     }
 
-    @GetMapping("/muscle_zone/{id}")
-    public Optional<MuscleZone> getMuscleZonesById(@PathVariable Long id) {
-        return muscleZoneRepository.findById(id);
+    @GetMapping("/muscle_zone/{muscleZoneId}")
+    public Optional<MuscleZone> getMuscleZonesByMuscleZoneId(@PathVariable Long muscleZoneId) {
+        return muscleZoneRepository.findById(muscleZoneId);
     }
 
 }

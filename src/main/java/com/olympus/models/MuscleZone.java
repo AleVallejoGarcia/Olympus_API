@@ -17,14 +17,14 @@ public class MuscleZone {
     private long muscleZoneId;
 
     @Column(nullable = false, length = 40)
-    private String name;
+    private String muscleName;
 
     public MuscleZone() {
     }
 
-    public MuscleZone(String name) {
+    public MuscleZone(String muscleName) {
         super();
-        this.name = name;
+        this.muscleName = muscleName;
     }
 
     public Long getMuscleZoneId() {
@@ -35,17 +35,13 @@ public class MuscleZone {
         this.muscleZoneId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getmuscleName() {
+        return muscleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setmuscleName(String muscleName) {
+        this.muscleName = muscleName;
     }
 
-    @Override
-    public String toString() {
-        return "MuscleZone [id=" + muscleZoneId + ", name=" + name
-                + "]";
-    }
+    
 }

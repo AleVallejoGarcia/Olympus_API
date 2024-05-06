@@ -14,13 +14,13 @@ public class Achievement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "achievement_id")
-    private long id;
+    private long achievementId;
 
     @Column(nullable = false, length = 200)
-    private String description;
+    private String achievementDescription;
 
     @Column(nullable = true, length = 200)
-    private String urlImage;
+    private String achievementUrlImage;
 
     @Column(nullable = true)
     private Boolean gived;
@@ -28,35 +28,35 @@ public class Achievement {
     public Achievement() {
     }
 
-    public Achievement(String description, String urlImage, Boolean gived) {
+    public Achievement(String achievementDescription, String achievementUrlImage, Boolean gived) {
         super();
-        this.description = description;
-        this.urlImage = urlImage;
+        this.achievementDescription = achievementDescription;
+        this.achievementUrlImage = achievementUrlImage;
         this.gived = gived;
     }
 
-    public Long getId() {
-        return id;
+    public Long getachievementId() {
+        return achievementId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setachievementId(Long achievementId) {
+        this.achievementId = achievementId;
     }
 
-    public String getDescription() {
-        return description;
+    public String getachievementDescription() {
+        return achievementDescription;
     }
 
-    public void setDescription(String name) {
-        this.description = name;
+    public void setachievementDescription(String name) {
+        this.achievementDescription = name;
     }
 
-    public String getUrlImage() {
-        return urlImage;
+    public String getachievementUrlImage() {
+        return achievementUrlImage;
     }
 
-    public void setUrlImage(String mail) {
-        this.urlImage = mail;
+    public void setachievementUrlImage(String mail) {
+        this.achievementUrlImage = mail;
     }
 
     public Boolean getGived() {
@@ -65,11 +65,5 @@ public class Achievement {
 
     public void setGived(Boolean gived) {
         this.gived = gived;
-    }
-
-    @Override
-    public String toString() {
-        return "Achievement [id=" + id + ", description=" + description + ", urlImage=" + urlImage
-                + "]";
     }
 }

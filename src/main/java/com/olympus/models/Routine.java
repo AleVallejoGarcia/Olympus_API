@@ -30,7 +30,7 @@ public class Routine {
     private long routineId;
 
     @Column(nullable = false, length = 40)
-    private String name;
+    private String routineName;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "fk_user_id", nullable = false)
@@ -45,9 +45,9 @@ public class Routine {
     public Routine() {
     }
 
-    public Routine(String name) {
+    public Routine(String routineName) {
         super();
-        this.name = name;
+        this.routineName = routineName;
     }
 
     public Long getRoutineId() {
@@ -58,12 +58,12 @@ public class Routine {
         this.routineId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getroutineName() {
+        return routineName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String routineName) {
+        this.routineName = routineName;
     }
 
     public User getUser() {
@@ -82,11 +82,6 @@ public class Routine {
         this.exercises = exercises;
     }
 
-    @Override
-    public String toString() {
-        return "Routine [id=" + routineId + ", name=" + name
-
-                + "]";
-    }
+    
 
 }
