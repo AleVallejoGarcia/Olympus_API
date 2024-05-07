@@ -29,7 +29,7 @@ public class ExerciseController {
     	return exerciseRepository.findById(exerciseId);
     }
     
-    @GetMapping("/exercises/{muscleZoneId}")
+    @GetMapping("/muscleZone/{muscleZoneId}/exercises")
     public List<Exercise> getExercisesByMuscleZoneId(@PathVariable Long muscleZoneId) {
         return exerciseRepository.findAllByMuscleZoneId(muscleZoneId);
     }

@@ -32,7 +32,7 @@ public class RoutineController {
         return routineRepository.findAll();
     }
 
-    @GetMapping("/routines/{userId}")
+    @GetMapping("/users/{userId}/routines")
     public List<Routine> getRoutineByUsedId(@PathVariable Long userId) {
         return routineRepository.findByUserId(userId);
     }
