@@ -108,5 +108,8 @@ public class User {
         this.userWeight = userWeight;
     }
 
+    public void addAchievement(Achievement achievement) {
+        achievements.add(achievement);
+    }
     
 }

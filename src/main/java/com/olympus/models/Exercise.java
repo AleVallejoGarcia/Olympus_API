@@ -49,7 +49,7 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String exerciseName, String exerciseDescription, String urlImage, long fk_muscle_zone_id) {
+    public Exercise(String exerciseName, String exerciseDescription, String urlImage) {
         super();
         this.exerciseName = exerciseName;
         this.exerciseDescription = exerciseDescription;

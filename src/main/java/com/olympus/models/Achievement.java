@@ -37,9 +37,7 @@ public class Achievement {
 
     @Column(nullable = true)
     private Boolean gived;
-    
-    
-    
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "achievements")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
@@ -48,11 +46,10 @@ public class Achievement {
     public Achievement() {
     }
 
-    public Achievement(String achievementDescription, String achievementUrlImage, Boolean gived) {
+    public Achievement(String achievementDescription, String achievementUrlImage) {
         super();
         this.achievementDescription = achievementDescription;
         this.achievementUrlImage = achievementUrlImage;
-        this.gived = gived;
     }
 
     public Long getachievementId() {
