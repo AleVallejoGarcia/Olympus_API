@@ -31,35 +31,33 @@ public class UserController {
     public User getUser(@PathVariable String userName) {
         return userRepository.findByUserName(userName);
     }
-    
+
     @PostMapping("/user")
     public User createUser(@RequestBody User userRequest) {
-    	return userRepository.save(userRequest);
+        return userRepository.save(userRequest);
     }
-    
+
     @PutMapping("/user/{userId}")
-    public User updateUserById(@PathVariable Long userId , @RequestBody User userRequest) {
-    	return userRepository.findById(userId).map( user -> {
+    public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
+        return userRepository.findById(userId).map(user -> {
             user.setuserName(userRequest.getuserName());
             user.setuserMail(userRequest.getuserMail());
             user.setuserPassword(userRequest.getuserPassword());
             user.setuserHeight(userRequest.getuserHeight());
             user.setuserWeight(userRequest.getuserWeight());
-            
+
             return userRepository.save(user);
-            }).orElseThrow(
-            () -> new ResourceNotFoundException("User not found with id " + userId)
-            );
+        }).orElseThrow(
+                () -> new ResourceNotFoundException("User not found with id " + userId));
     }
-    
+
     @DeleteMapping("/user/{userId}")
     public void deleteUser(@PathVariable Long userId) {
-    	try {
-			userRepository.deleteById(userId);
-		} catch (Exception e) {
-			System.out.println("User Id " + userId + " not found");
-		}
+        try {
+            userRepository.deleteById(userId);
+        } catch (Exception e) {
+            System.out.println("User Id " + userId + " not found");
+        }
     }
-    
 
 }

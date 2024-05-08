@@ -82,6 +82,4 @@ public class Routine {
         this.exercises = exercises;
     }
 
-    
-
 }
