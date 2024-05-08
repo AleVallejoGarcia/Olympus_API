@@ -102,6 +102,33 @@ public class InitDatabase implements CommandLineRunner {
                                 "Sit on a cable row machine and adjust the foot pads so that your legs are secured. Grasp the handles with an overhand grip. Keep your chest up and your back straight as you pull the handles toward your torso. Pause, then slowly return to the starting position.",
                                 "https://example.com/cable-row.jpg");
 
+                // Biceps
+
+                Exercise standingBarbellCurl = new Exercise(
+                                "Standing Barbell Curl",
+                                "Stand with your feet shoulder-width apart, holding a barbell with an underhand grip, palms facing up. Keep your elbows close to your torso and exhale as you curl the barbell towards your shoulders. Inhale as you lower the weight back down to the starting position.",
+                                "https://example.com/standing_barbell_curl.jpg");
+                Exercise dumbbellHammerCurl = new Exercise(
+                                "Dumbbell Hammer Curl",
+                                "Stand with a dumbbell in each hand, arms fully extended by your sides, palms facing your body. Keep your elbows close to your torso and exhale as you curl the dumbbells upwards. Inhale as you lower the weights back down to the starting position.",
+                                "https://example.com/dumbbell_hammer_curl.jpg");
+                Exercise preacherCurl = new Exercise(
+                                "Preacher Curl",
+                                "Sit at a preacher bench, grasp an EZ-bar or dumbbells with an underhand grip, and place your upper arms against the preacher pad. Exhale as you curl the weight upwards, keeping your upper arms stationary. Inhale as you lower the weight back down to the starting position.",
+                                "https://example.com/preacher_curl.jpg");
+                Exercise inclineDumbbellCurl = new Exercise(
+                                "Incline Dumbbell Curl",
+                                "Lie back on an incline bench, holding a dumbbell in each hand, arms fully extended towards the floor, palms facing forward. Exhale as you curl the dumbbells upwards, keeping your upper arms stationary. Inhale as you lower the weights back down to the starting position.",
+                                "https://example.com/incline_dumbbell_curl.jpg");
+                Exercise cableCurl = new Exercise(
+                                "Cable Curl",
+                                "Stand in front of a cable machine with a straight bar attached to the low pulley, grip the bar with an underhand grip, and position your feet shoulder-width apart. Exhale as you curl the bar towards your shoulders, keeping your elbows close to your torso. Inhale as you return the bar to the starting position.",
+                                "https://example.com/cable_curl.jpg");
+                Exercise chinUp = new Exercise(
+                                "Chin-Up",
+                                "Grab a pull-up bar with an underhand grip, hands shoulder-width apart. Hang freely with your arms fully extended. Exhale as you pull yourself up, bringing your chin over the bar. Inhale as you lower yourself back down to the starting position.",
+                                "https://example.com/chin_up.jpg");
+
                 // Triceps
                 Exercise tricepPushdown = new Exercise(
                                 "Tricep Pushdown",
@@ -249,6 +276,13 @@ public class InitDatabase implements CommandLineRunner {
                 dumbbellRow.setMucleZone(back);
                 cableRow.setMucleZone(back);
 
+                standingBarbellCurl.setMucleZone(bicep);
+                dumbbellHammerCurl.setMucleZone(bicep);
+                preacherCurl.setMucleZone(bicep);
+                inclineDumbbellCurl.setMucleZone(bicep);
+                cableCurl.setMucleZone(bicep);
+                chinUp.setMucleZone(bicep);
+
                 tricepPushdown.setMucleZone(tricep);
                 closeGripBenchPressTri.setMucleZone(tricep);
                 tricepDips.setMucleZone(tricep);
@@ -302,6 +336,13 @@ public class InitDatabase implements CommandLineRunner {
                 stiffLeggedDeadlift = oneToManyService.saveExercise(stiffLeggedDeadlift);
                 dumbbellRow = oneToManyService.saveExercise(dumbbellRow);
                 cableRow = oneToManyService.saveExercise(cableRow);
+
+                standingBarbellCurl = oneToManyService.saveExercise(standingBarbellCurl);
+                dumbbellHammerCurl = oneToManyService.saveExercise(dumbbellHammerCurl);
+                preacherCurl = oneToManyService.saveExercise(preacherCurl);
+                inclineDumbbellCurl = oneToManyService.saveExercise(inclineDumbbellCurl);
+                cableCurl = oneToManyService.saveExercise(cableCurl);
+                chinUp = oneToManyService.saveExercise(chinUp);
 
                 tricepPushdown = oneToManyService.saveExercise(tricepPushdown);
                 closeGripBenchPressTri = oneToManyService.saveExercise(closeGripBenchPressTri);
