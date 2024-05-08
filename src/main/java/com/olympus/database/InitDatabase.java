@@ -328,5 +328,15 @@ public class InitDatabase implements CommandLineRunner {
                 standingCalfRaise = oneToManyService.saveExercise(standingCalfRaise);
                 seatedCalfRaise = oneToManyService.saveExercise(seatedCalfRaise);
 
+                achievement1 = manyToManyService.saveAchievement(achievement1);
+                achievement2 = manyToManyService.saveAchievement(achievement2);
+                achievement3 = manyToManyService.saveAchievement(achievement3);
+                achievement4 = manyToManyService.saveAchievement(achievement4);
+                achievement5 = manyToManyService.saveAchievement(achievement5);
+                achievement6 = manyToManyService.saveAchievement(achievement6);
+                achievement7 = manyToManyService.saveAchievement(achievement7);
+                achievement8 = manyToManyService.saveAchievement(achievement8);
+                achievement9 = manyToManyService.saveAchievement(achievement9);
+                achievement10 = manyToManyService.saveAchievement(achievement10);
         }
 }
