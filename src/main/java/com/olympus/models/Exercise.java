@@ -30,7 +30,7 @@ public class Exercise {
     @Column(nullable = false, length = 30)
     private String exerciseName;
 
-    @Column(nullable = false, length = 200)
+    @Column(nullable = false, length = 300)
     private String exerciseDescription;
 
     @Column(nullable = false, length = 200)
