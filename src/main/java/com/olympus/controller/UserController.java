@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.olympus.exception.ResourceNotFoundException;
 import com.olympus.models.LoginUserInformation;
+import com.olympus.models.LoginUserReturnObject;
 import com.olympus.models.User;
 import com.olympus.repositories.UserRepository;
 
@@ -31,12 +32,14 @@ public class UserController {
     }
 
     @PostMapping("/user/verifyUser")
-    public boolean verifyUser(@RequestBody LoginUserInformation userRequest) {
+    public LoginUserReturnObject verifyUser(@RequestBody LoginUserInformation userRequest) {
         User userToVerify = userRepository.findByUserMail(userRequest.getuserMail());
+        LoginUserReturnObject userIsCorrect = new LoginUserReturnObject(userToVerify.getUserId(), userToVerify.getuserName(), true);
+        LoginUserReturnObject userIsNotCorrect = new LoginUserReturnObject(0L, "", false);
         if (userToVerify != null && userRequest.getuserPassword().equals(userToVerify.getuserPassword()) ) {
-             return true;
+             return userIsCorrect;
          } else {
-             return false;
+             return userIsNotCorrect;
          }
     }
 
