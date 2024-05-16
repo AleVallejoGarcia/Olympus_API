@@ -29,9 +29,18 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("/user/{userName}")
-    public User getUser(@PathVariable String userName) {
-        return userRepository.findByUserName(userName);
+    @PostMapping("/user/verifyUser")
+    public boolean verifyUser(@RequestBody User userRequest) {
+        try {
+           User userToVerify = userRepository.findByUserMail(userRequest.getuserMail());
+           if (userRequest.getuserPassword().equals(userToVerify.getuserPassword()) ) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @PostMapping("/user")
