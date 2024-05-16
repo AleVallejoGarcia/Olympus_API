@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.olympus.models.Admin;
+import com.olympus.models.User;
 import com.olympus.repositories.AdminRepository;
 
 import com.olympus.exception.ResourceNotFoundException;
@@ -33,9 +34,18 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/admins/{adminName}")
-    public Admin getAdminByName(@PathVariable String adminName) {
-    	return adminRepository.findByadminName(adminName);
+    @PostMapping("/admins/verifyAdmin")
+    public boolean verifyAdmin(@RequestBody Admin adminRequest) {
+    	try {
+           Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
+           if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     

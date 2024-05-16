@@ -9,6 +9,6 @@ import com.olympus.models.Admin;
 
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-	Admin findByadminName(String adminName);
+	Admin findByAdminMail(String adminMail);
 
 }

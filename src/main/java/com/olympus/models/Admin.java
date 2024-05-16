@@ -19,7 +19,7 @@ public class Admin {
     @Column(nullable = false, length = 30)
     private String adminName;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20 , unique = true)
     private String adminMail;
 
     @Column(nullable = false, length = 20)
