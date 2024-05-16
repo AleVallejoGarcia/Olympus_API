@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.olympus.models.Admin;
+import com.olympus.models.LoginAdminInformation;
 import com.olympus.models.User;
 import com.olympus.repositories.AdminRepository;
 
@@ -35,7 +36,7 @@ public class AdminController {
     }
 
     @PostMapping("/admins/verifyAdmin")
-    public boolean verifyAdmin(@RequestBody Admin adminRequest) {
+    public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
     	try {
            Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
            if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
