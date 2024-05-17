@@ -3,7 +3,6 @@ package com.olympus.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.olympus.models.Admin;
 import com.olympus.models.LoginAdminInformation;
-import com.olympus.models.User;
 import com.olympus.repositories.AdminRepository;
 
 import com.olympus.exception.ResourceNotFoundException;
@@ -37,9 +35,9 @@ public class AdminController {
 
     @PostMapping("/admins/verifyAdmin")
     public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
-    	try {
-           Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
-           if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
+        try {
+            Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
+            if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword())) {
                 return true;
             } else {
                 return false;
@@ -48,8 +46,7 @@ public class AdminController {
             return false;
         }
     }
-    
-    
+
     @PutMapping("/admins/{adminId}")
     public Admin updateAdminById(@PathVariable Long adminId, @RequestBody Admin adminRequest) {
         return adminRepository.findById(adminId).map(admin -> {
