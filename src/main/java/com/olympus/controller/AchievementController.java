@@ -41,10 +41,10 @@ public class AchievementController {
 
     @GetMapping("/achievements/{userId}")
     public List<Achievement> getAchievementsByUser(@PathVariable Long userId) {
-        return achievementsRepository.finAllByUserId(userId);
+        return achievementsRepository.findByUsers_Id(userId);
     }
 
-    @PostMapping("/achievements/{achievementId}/{userId}")
+    @PostMapping("/achievements/{achievementId}/users/{userId}")
     public Achievement addAchievementToUser(@PathVariable(name = "achievementId") Long achievementId,
             @PathVariable(name = "userId") Long userId) {
         Optional<Achievement> achievement = achievementsRepository.findById(achievementId);
