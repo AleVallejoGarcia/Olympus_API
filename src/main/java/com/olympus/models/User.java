@@ -116,4 +116,8 @@ public class User {
         this.achievements = achievements;
     }
 
+    public Set<Achievement> getAchievements() {
+        return this.achievements;
+    }
+
 }

@@ -39,7 +39,7 @@ public class AchievementController {
         return achievementsRepository.findById(achievementId);
     }
 
-    @GetMapping("/achievements/{userId}")
+    @GetMapping("{userId}/achievements")
     public List<Achievement> getAchievementsByUser(@PathVariable Long userId) {
         return achievementsRepository.findByUsers_Id(userId);
     }
@@ -49,8 +49,8 @@ public class AchievementController {
             @PathVariable(name = "userId") Long userId) {
         Optional<Achievement> achievement = achievementsRepository.findById(achievementId);
         Optional<User> user = userRepository.findById(userId);
-        Set<Achievement> achievements = new HashSet<>();
-        Set<User> users = new HashSet<>();
+        Set<Achievement> achievements = user.get().getAchievements();
+        Set<User> users = achievement.get().getUser();
         achievements.add(achievement.get());
         users.add(user.get());
         achievement.get().setUsers(users);
