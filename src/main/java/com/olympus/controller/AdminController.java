@@ -35,15 +35,18 @@ public class AdminController {
 
     @PostMapping("/admins/verifyAdmin")
     public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
-        Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
-        if (adminToVerify != null && adminRequest.getadminPassword().equals(adminToVerify.getadminPassword())) {
-            return true;
-        } else {
+    	try {
+           Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
+           if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             return false;
         }
     }
-    
-    
+
     @PutMapping("/admins/{adminId}")
     public Admin updateAdminById(@PathVariable Long adminId, @RequestBody Admin adminRequest) {
         return adminRepository.findById(adminId).map(admin -> {

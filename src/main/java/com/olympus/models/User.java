@@ -31,7 +31,7 @@ public class User {
     @Column(nullable = false, length = 30)
     private String userName;
 
-    @Column(nullable = false, length = 30 , unique = true)
+    @Column(nullable = false, length = 30, unique = true)
     private String userMail;
 
     @Column(nullable = false, length = 30)
@@ -42,7 +42,7 @@ public class User {
 
     @Column(nullable = false, length = 30)
     private float userWeight;
-    
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name = "users_achievements_table", joinColumns = @JoinColumn(name = "fk_user_id"), inverseJoinColumns = @JoinColumn(name = "fk_achievement_id"))
     @JsonIgnore
@@ -111,5 +111,13 @@ public class User {
     public void addAchievement(Achievement achievement) {
         achievements.add(achievement);
     }
-    
+
+    public void setAchievements(Set<Achievement> achievements) {
+        this.achievements = achievements;
+    }
+
+    public Set<Achievement> getAchievements() {
+        return this.achievements;
+    }
+
 }

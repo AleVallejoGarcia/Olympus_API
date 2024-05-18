@@ -81,4 +81,12 @@ public class Achievement {
     public void setGived(Boolean gived) {
         this.gived = gived;
     }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Set<User> getUser() {
+        return this.users;
+    }
 }
