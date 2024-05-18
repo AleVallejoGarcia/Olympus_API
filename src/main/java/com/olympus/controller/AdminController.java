@@ -35,14 +35,10 @@ public class AdminController {
 
     @PostMapping("/admins/verifyAdmin")
     public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
-    	try {
-           Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
-           if (adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
+        Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
+        if (adminToVerify != null && adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
+            return true;
+        } else {
             return false;
         }
     }
