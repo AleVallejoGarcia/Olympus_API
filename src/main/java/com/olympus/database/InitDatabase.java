@@ -225,34 +225,34 @@ public class InitDatabase implements CommandLineRunner {
 
                 Achievement achievement1 = new Achievement(
                                 "Complete 10 workouts in a month",
-                                "https://example.com/achievement1.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement1.png");
                 Achievement achievement2 = new Achievement(
                                 "Lift 1000 pounds in total",
-                                "https://example.com/achievement2.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement2.png");
                 Achievement achievement3 = new Achievement(
                                 "Run 10 miles in a week",
-                                "https://example.com/achievement3.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement3.png");
                 Achievement achievement4 = new Achievement(
                                 "Attend 20 group classes",
-                                "https://example.com/achievement4.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement4.png");
                 Achievement achievement5 = new Achievement(
                                 "Do 50 push-ups in a row",
-                                "https://example.com/achievement5.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement5.png");
                 Achievement achievement6 = new Achievement(
                                 "Complete a marathon (100 km)",
-                                "https://example.com/achievement6.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement6.png");
                 Achievement achievement7 = new Achievement(
                                 "Do 30 bicep curls in a row",
-                                "https://example.com/achievement7.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement7.png");
                 Achievement achievement8 = new Achievement(
                                 "Reach a body fat percentage of 15%",
-                                "https://example.com/achievement8.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement8.png");
                 Achievement achievement9 = new Achievement(
                                 "Bench press your body weight",
-                                "https://example.com/achievement9.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement9.png");
                 Achievement achievement10 = new Achievement(
                                 "Complete 1000 squats in a month",
-                                "https://example.com/achievement10.jpg");
+                                "./../assets/images/Fondo_Olympus_Server.png/achievement10.png");
 
                 dumbbellBenchPress.setMucleZone(chest);
                 inclineDumbbellBenchPress.setMucleZone(chest);
