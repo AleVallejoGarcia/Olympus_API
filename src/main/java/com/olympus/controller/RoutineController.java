@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +51,11 @@ public class RoutineController {
         return routineRepository.findById(routineId);
     }
 
+    @DeleteMapping("/routines/{routineId}")
+    public void deleteRoutine(@PathVariable Long routineId) {
+        routineRepository.deleteById(routineId);
+    }
+
     @PostMapping("/routines/{userId}")
     public Routine addRoutineToUser(@RequestBody Routine routineRequest, @PathVariable(name = "userId") Long userId) {
         Optional<User> user = userRepository.findById(userId);
@@ -62,8 +68,8 @@ public class RoutineController {
             @PathVariable(name = "routineId") Long routineId) {
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
         Optional<Routine> routine = routineRepository.findById(routineId);
-        Set<Routine> routines = new HashSet<>();
-        Set<Exercise> exercises = new HashSet<>();
+        Set<Routine> routines = exercise.get().getRoutines();
+        Set<Exercise> exercises = routine.get().getExercises();
         exercises.add(exercise.get());
         routines.add(routine.get());
         exercise.get().setRoutines(routines);
@@ -73,4 +79,18 @@ public class RoutineController {
 
     }
 
+    @DeleteMapping("/excercies/{exerciseId}/routines/{routineId}")
+    public void removeExerciseFromRoutine(@PathVariable(name = "exerciseId") Long exerciseId,
+            @PathVariable(name = "routineId") Long routineId) {
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        Optional<Routine> routine = routineRepository.findById(routineId);
+        Set<Routine> routines = exercise.get().getRoutines();
+        Set<Exercise> exercises = routine.get().getExercises();
+        exercises.remove(exercise.get());
+        routines.remove(routine.get());
+        exercise.get().setRoutines(routines);
+        routine.get().setExercises(exercises);
+        exerciseRepository.save(exercise.get());
+        routineRepository.save(routine.get());
+    }
 }

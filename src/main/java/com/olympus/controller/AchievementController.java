@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,5 +57,20 @@ public class AchievementController {
         user.get().setAchievements(achievements);
         userRepository.save(user.get());
         return achievementsRepository.save(achievement.get());
+    }
+
+    @DeleteMapping("/achievements/{achievementId}/users/{userId}")
+    public void removeAchievementFromUser(@PathVariable(name = "achievementId") Long achievementId,
+            @PathVariable(name = "userId") Long userId) {
+        Optional<Achievement> achievement = achievementsRepository.findById(achievementId);
+        Optional<User> user = userRepository.findById(userId);
+        Set<Achievement> achievements = user.get().getAchievements();
+        Set<User> users = achievement.get().getUser();
+        achievements.remove(achievement.get());
+        users.remove(user.get());
+        achievement.get().setUsers(users);
+        user.get().setAchievements(achievements);
+        userRepository.save(user.get());
+        achievementsRepository.save(achievement.get());
     }
 }
