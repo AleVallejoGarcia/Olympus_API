@@ -39,7 +39,7 @@ public class AchievementController {
         return achievementsRepository.findById(achievementId);
     }
 
-    @GetMapping("{userId}/achievements")
+    @GetMapping("/achievements/{userId}")
     public List<Achievement> getAchievementsByUser(@PathVariable Long userId) {
         return achievementsRepository.findByUsers_Id(userId);
     }
