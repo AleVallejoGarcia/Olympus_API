@@ -39,7 +39,7 @@ public class Achievement {
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "achievements")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Set<User> users = new HashSet<>();
+    private Set<User> user = new HashSet<>();
 
     public Achievement() {
     }
@@ -82,11 +82,11 @@ public class Achievement {
         this.gived = gived;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUsers(Set<User> user) {
+        this.user = user;
     }
 
     public Set<User> getUser() {
-        return this.users;
+        return this.user;
     }
 }

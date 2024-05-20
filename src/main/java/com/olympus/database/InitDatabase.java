@@ -10,9 +10,6 @@ import com.olympus.models.MuscleZone;
 import com.olympus.services.ManyToManyService;
 import com.olympus.services.ManyToOneService;
 
-//This class will add some data to the database when the database starts,
-//it will add 8 customers, 4 banks and 4 cities
-
 @Component
 public class InitDatabase implements CommandLineRunner {
         @Autowired

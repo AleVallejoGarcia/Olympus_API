@@ -9,6 +9,6 @@ import com.olympus.models.Achievement;
 
 @Repository
 public interface AchievementsRepository extends JpaRepository<Achievement, Long> {
-    List<Achievement> findByUsers_Id(Long userId);
+    List<Achievement> findByUser_UserId(Long userId);
 
 }
