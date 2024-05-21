@@ -1,9 +1,11 @@
 package com.olympus.models;
 
+// This class represents the login information for an user
 public class LoginUserInformation {
-    private String userMail;
-    private String userPassword;
+    private String userMail; // Stores the user email
+    private String userPassword; // Stores the user password
 
+    //Constructors
     public LoginUserInformation(){
     }
 
@@ -13,6 +15,7 @@ public class LoginUserInformation {
         this.userPassword = userPassword;
     }
 
+    //Getters and Setters
     public String getuserMail() {
         return userMail;
     }

@@ -16,14 +16,15 @@ import com.olympus.repositories.AdminRepository;
 
 import com.olympus.exception.ResourceNotFoundException;
 
-@RestController
-@RequestMapping("/olympus/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Indicates that this class is a REST controller
+@RequestMapping("/olympus/v1") // Base URL mapping for all request handlers in this class
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Allowing cross-origin requests
 public class AdminController {
 
-    @Autowired
+    @Autowired // Injects an instance of AdminRepository
     AdminRepository adminRepository;
 
+    // Handler method to delete an admin by ID
     @DeleteMapping("/admins/{adminId}")
     public void deleteAdmin(@PathVariable Long adminId) {
         try {
@@ -33,6 +34,7 @@ public class AdminController {
         }
     }
 
+    // Handler method to verify admin credentials
     @PostMapping("/admins/verifyAdmin")
     public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
         Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
@@ -43,6 +45,7 @@ public class AdminController {
         }
     }
 
+    // Handler method to update an admin by ID
     @PutMapping("/admins/{adminId}")
     public Admin updateAdminById(@PathVariable Long adminId, @RequestBody Admin adminRequest) {
         return adminRepository.findById(adminId).map(admin -> {
@@ -55,6 +58,7 @@ public class AdminController {
                 () -> new ResourceNotFoundException("User not found with id " + adminId));
     }
 
+    // Handler method to create a new admin
     @PostMapping("/admin")
     public Admin createAdmin(@RequestBody Admin userRequest) {
         return adminRepository.save(userRequest);

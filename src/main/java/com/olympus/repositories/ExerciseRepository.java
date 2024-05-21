@@ -7,9 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.olympus.models.Exercise;
 
-@Repository
+@Repository // Indicates that this interface is a repository component
 public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
+    // Query method to find all exercises by muscle zone ID
     List<Exercise> findAllByMuscleZoneId(Long muscle_zone_id);
     
+    // Query method to find all exercises by routine ID
     List<Exercise> findAllByRoutinesId(Long routineId);
 }

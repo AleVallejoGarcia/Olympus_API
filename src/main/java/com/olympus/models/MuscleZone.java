@@ -7,18 +7,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "muscle_zones")
+@Entity // Specifies that the class is an entity and is mapped to a database table
+@Table(name = "muscle_zones") // Specifies the name of the database table to be used for mapping
 public class MuscleZone {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "muscle_zone_id")
-    private long muscleZoneId;
+    @Id // Specifies the primary key of the entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies the generation strategy for the primary key values
+    @Column(name = "muscle_zone_id") // Specifies the column name in the database table
+    private long muscleZoneId; // Represents the ID of the muscle zone
 
-    @Column(nullable = false, length = 40)
-    private String muscleName;
+    @Column(nullable = false, length = 40) // Specifies the column properties
+    private String muscleName; // Represents the name of the muscle zone
 
+
+    // Constructors
     public MuscleZone() {
     }
 
@@ -27,6 +29,8 @@ public class MuscleZone {
         this.muscleName = muscleName;
     }
 
+
+    // Getters and Setters
     public Long getMuscleZoneId() {
         return muscleZoneId;
     }

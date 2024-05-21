@@ -1,6 +1,5 @@
 package com.olympus.controller;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -22,40 +21,45 @@ import com.olympus.repositories.ExerciseRepository;
 import com.olympus.repositories.RoutineRepository;
 import com.olympus.repositories.UserRepository;
 
-@RestController
-@RequestMapping("/olympus/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Indicates that this class is a REST controller
+@RequestMapping("/olympus/v1") // Base URL mapping for all request handlers in this class
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Allowing cross-origin requests
 public class RoutineController {
 
-    @Autowired
+    @Autowired // Injects an instance of RoutineRepository
     RoutineRepository routineRepository;
 
-    @Autowired
+    @Autowired // Injects an instance of UserRepository
     UserRepository userRepository;
 
-    @Autowired
+    @Autowired // Injects an instance of ExerciseRepository
     ExerciseRepository exerciseRepository;
 
+    // Handler method to retrieve all routines
     @GetMapping("/routines")
     public List<Routine> getAllRoutines() {
         return routineRepository.findAll();
     }
 
+    // Handler method to retrieve routines by user ID
     @GetMapping("/users/{userId}/routines")
     public List<Routine> getRoutineByUsedId(@PathVariable Long userId) {
         return routineRepository.findByUserId(userId);
     }
 
+    // Handler method to retrieve a routine by ID
     @GetMapping("/routines/{routineId}")
     public Optional<Routine> getRoutineByRoutineId(@PathVariable Long routineId) {
         return routineRepository.findById(routineId);
     }
 
+    // Handler method to delete a routine by ID
     @DeleteMapping("/routines/{routineId}")
     public void deleteRoutine(@PathVariable Long routineId) {
         routineRepository.deleteById(routineId);
     }
 
+    // Handler method to add a routine to a user
     @PostMapping("/routines/{userId}")
     public Routine addRoutineToUser(@RequestBody Routine routineRequest, @PathVariable(name = "userId") Long userId) {
         Optional<User> user = userRepository.findById(userId);
@@ -63,6 +67,7 @@ public class RoutineController {
         return routineRepository.save(routineRequest);
     }
 
+    // Handler method to add an exercise to a routine
     @PostMapping("/excercies/{exerciseId}/routines/{routineId}")
     public Routine addExerciseToRoutine(@PathVariable(name = "exerciseId") Long exerciseId,
             @PathVariable(name = "routineId") Long routineId) {
@@ -79,6 +84,7 @@ public class RoutineController {
 
     }
 
+    // Handler method to remove an exercise from a routine
     @DeleteMapping("/excercies/{exerciseId}/routines/{routineId}")
     public void removeExerciseFromRoutine(@PathVariable(name = "exerciseId") Long exerciseId,
             @PathVariable(name = "routineId") Long routineId) {

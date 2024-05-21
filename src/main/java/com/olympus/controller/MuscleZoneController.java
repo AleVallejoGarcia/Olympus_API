@@ -13,19 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.olympus.models.MuscleZone;
 import com.olympus.repositories.MuscleZoneRepository;
 
-@RestController
-@RequestMapping("/olympus/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Indicates that this class is a REST controller
+@RequestMapping("/olympus/v1") // Base URL mapping for all request handlers in this class
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Allowing cross-origin requests
 public class MuscleZoneController {
 
-    @Autowired
+    @Autowired // Injects an instance of MuscleZoneRepository
     MuscleZoneRepository muscleZoneRepository;
 
+    // Handler method to retrieve all muscle zones
     @GetMapping("/muscle_zone")
     public List<MuscleZone> getAllMuscleZones() {
         return muscleZoneRepository.findAll();
     }
 
+    // Handler method to retrieve a muscle zone by ID
     @GetMapping("/muscle_zone/{muscleZoneId}")
     public Optional<MuscleZone> getMuscleZonesByMuscleZoneId(@PathVariable Long muscleZoneId) {
         return muscleZoneRepository.findById(muscleZoneId);

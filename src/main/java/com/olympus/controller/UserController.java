@@ -19,18 +19,21 @@ import com.olympus.models.LoginUserReturnObject;
 import com.olympus.models.User;
 import com.olympus.repositories.UserRepository;
 
-@RestController
-@RequestMapping("/olympus/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Indicates that this class is a REST controller
+@RequestMapping("/olympus/v1") // Base URL mapping for all request handlers in this class
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Allowing cross-origin requests
 public class UserController {
-    @Autowired
+
+    @Autowired // Injects an instance of UserRepository
     UserRepository userRepository;
 
+    // Handler method to retrieve all users
     @GetMapping("/user")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    // Handler method to verify user login credentials
     @PostMapping("/user/verifyUser")
     public LoginUserReturnObject verifyUser(@RequestBody LoginUserInformation userRequest) {
         User userToVerify = userRepository.findByUserMail(userRequest.getuserMail());
@@ -43,11 +46,13 @@ public class UserController {
          }
     }
 
+    // Handler method to create a new user
     @PostMapping("/user")
     public User createUser(@RequestBody User userRequest) {
         return userRepository.save(userRequest);
     }
 
+    // Handler method to update user information by user ID
     @PutMapping("/user/{userId}")
     public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
         return userRepository.findById(userId).map(user -> {
@@ -62,6 +67,7 @@ public class UserController {
                 () -> new ResourceNotFoundException("User not found with id " + userId));
     }
 
+    // Handler method to delete a user by user ID
     @DeleteMapping("/user/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         try {

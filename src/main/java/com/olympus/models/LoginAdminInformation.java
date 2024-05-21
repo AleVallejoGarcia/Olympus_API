@@ -1,9 +1,10 @@
 package com.olympus.models;
-
+// This class represents the login information for an admin
 public class LoginAdminInformation {
-    private String adminMail;
-    private String adminPassword;
+    private String adminMail; // Stores the admin's email
+    private String adminPassword; // Stores the admin's password
 
+    //Constructors
     public LoginAdminInformation(){
     }
 
@@ -13,6 +14,7 @@ public class LoginAdminInformation {
         this.adminPassword = adminPassword;
     }
 
+    //Getters and Setters
     public String getadminMail() {
         return adminMail;
     }

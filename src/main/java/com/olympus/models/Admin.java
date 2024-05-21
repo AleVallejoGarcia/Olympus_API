@@ -7,24 +7,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "admins")
+@Entity // Marks the class as an entity managed by JPA
+@Table(name = "admins") // Specifies the name of the table in the database
 public class Admin {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "admin_id")
+    @Id // Marks the field as the primary key of the entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Configures the primary key generation strategy
+    @Column(name = "admin_id") // Specifies the column name in the table
     private long adminId;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 30) // Specifies the column properties
     private String adminName;
 
-    @Column(nullable = false, length = 20 , unique = true)
-    private String adminMail;
+    @Column(nullable = false, length = 20 , unique = true) // Specifies the column properties
+    private String adminMail; // Admin's email (must be unique)
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20) // Specifies the column properties
     private String adminPassword;
 
+    // Constructors
     public Admin() {
     }
 
@@ -34,6 +35,8 @@ public class Admin {
         this.adminMail = adminMail;
         this.adminPassword = adminPassword;
     }
+
+    // Getters and Setters
 
     public Long getAdminId() {
         return adminId;

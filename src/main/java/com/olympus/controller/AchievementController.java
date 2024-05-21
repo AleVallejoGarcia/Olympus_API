@@ -18,32 +18,36 @@ import com.olympus.models.User;
 import com.olympus.repositories.AchievementsRepository;
 import com.olympus.repositories.UserRepository;
 
-@RestController
-@RequestMapping("/olympus/v1")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Indicates that this class is a REST controller
+@RequestMapping("/olympus/v1") // Base URL mapping for all request handlers in this class
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Allowing cross-origin requests
 public class AchievementController {
 
-    @Autowired
+    @Autowired // Injects an instance of AchievementsRepository
     AchievementsRepository achievementsRepository;
 
-    @Autowired
+    @Autowired // Injects an instance of UserRepository
     UserRepository userRepository;
 
+    // Handler method to retrieve all achievements
     @GetMapping("/achievements")
     public List<Achievement> getAllAchievements() {
         return achievementsRepository.findAll();
     }
 
+    // Handler method to retrieve a specific achievement by ID
     @GetMapping("/achievements/{achievementId}")
     public Optional<Achievement> getAchievementByAchievementId(@PathVariable Long achievementId) {
         return achievementsRepository.findById(achievementId);
     }
 
+    // Handler method to retrieve all achievements of a specific user
     @GetMapping("/{userId}/achievements")
     public List<Achievement> getAchievementsByUser(@PathVariable Long userId) {
         return achievementsRepository.findByUser_UserId(userId);
     }
 
+    // Handler method to add an achievement to a user
     @PostMapping("/achievements/{achievementId}/users/{userId}")
     public Achievement addAchievementToUser(@PathVariable(name = "achievementId") Long achievementId,
             @PathVariable(name = "userId") Long userId) {
@@ -59,6 +63,7 @@ public class AchievementController {
         return achievementsRepository.save(achievement.get());
     }
 
+    // Handler method to remove an achievement from a user
     @DeleteMapping("/achievements/{achievementId}/users/{userId}")
     public void removeAchievementFromUser(@PathVariable(name = "achievementId") Long achievementId,
             @PathVariable(name = "userId") Long userId) {

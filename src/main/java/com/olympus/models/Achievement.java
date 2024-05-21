@@ -22,33 +22,38 @@ import jakarta.persistence.Table;
 @Table(name = "achievements")
 public class Achievement {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "achievement_id")
-    private long achievementId;
+    @Id // Specifies the primary key of the entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies the generation strategy for the primary key values
+    @Column(name = "achievement_id") // Specifies the column name in the database table
+    private long achievementId; // Represents the ID of the achievement
 
-    @Column(nullable = false, length = 200)
-    private String achievementDescription;
+    @Column(nullable = false, length = 200) // Specifies the column properties
+    private String achievementDescription; // Represents the description of the achievement
 
-    @Column(nullable = true, length = 200)
-    private String achievementUrlImage;
+    @Column(nullable = true, length = 200) // Specifies the column properties
+    private String achievementUrlImage; // Represents the URL of the image associated with the achievement
 
-    @Column(nullable = true)
-    private Boolean gived;
+    @Column(nullable = true) // Specifies the column properties
+    private Boolean gived; // Represents whether the achievement has been given
 
+    // Establishes a many-to-many relationship with the User entity, specifying the mapping details
     @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "achievements")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Set<User> user = new HashSet<>();
+    @OnDelete(action = OnDeleteAction.CASCADE) // Specifies the action to be taken on deletion of the associated User entity
+    @JsonIgnore // Ignores this property during JSON serialization
+    private Set<User> user = new HashSet<>(); // Represents the set of users associated with this achievement
 
+    // Default constructor
     public Achievement() {
     }
 
+    // Parameterized constructor
     public Achievement(String achievementDescription, String achievementUrlImage) {
         super();
         this.achievementDescription = achievementDescription;
         this.achievementUrlImage = achievementUrlImage;
     }
+
+    // Getters and setters
 
     public Long getachievementId() {
         return achievementId;

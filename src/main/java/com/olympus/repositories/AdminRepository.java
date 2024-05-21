@@ -5,10 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.olympus.models.Admin;
 
-@Repository
-
+@Repository // Indicates that this interface is a repository component
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-
+	// Query method to find an admin by email
 	Admin findByAdminMail(String adminMail);
-
 }

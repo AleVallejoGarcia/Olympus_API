@@ -12,33 +12,37 @@ import com.olympus.repositories.MuscleZoneRepository;
 import com.olympus.repositories.RoutineRepository;
 import com.olympus.repositories.UserRepository;
 
-@Service
+@Service // Marks this class as a Spring service
 public class ManyToOneService {
 
-    @Autowired
+    @Autowired // Automatically injects the ExerciseRepository dependency
     ExerciseRepository exerciseRepository;
 
-    @Autowired
+    @Autowired // Automatically injects the MuscleZoneRepository dependency
     MuscleZoneRepository muscleZoneRepository;
 
-    @Autowired
+    @Autowired // Automatically injects the UserRepository dependency
     UserRepository userRepository;
 
-    @Autowired
+    @Autowired // Automatically injects the RoutineRepository dependency
     RoutineRepository routineRepository;
 
+    // Saves an Exercise entity to the database
     public Exercise saveExercise(Exercise exercise) {
         return exerciseRepository.save(exercise);
     }
-
+    
+    // Saves a Routine entity to the database
     public Routine saveRoutine(Routine routine) {
         return routineRepository.save(routine);
     }
 
+    // Saves a User entity to the database
     public User saveUser(User user) {
         return userRepository.save(user);
     }
 
+    // Saves a MuscleZone entity to the database
     public MuscleZone saveMuscleZone(MuscleZone muscleZone) {
         return muscleZoneRepository.save(muscleZone);
 

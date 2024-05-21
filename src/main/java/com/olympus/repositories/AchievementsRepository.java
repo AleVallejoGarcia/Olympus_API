@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.olympus.models.Achievement;
 
-@Repository
+@Repository // Indicates that this interface is a repository component
 public interface AchievementsRepository extends JpaRepository<Achievement, Long> {
+    
+    // Query method to find achievements by user ID
     List<Achievement> findByUser_UserId(Long userId);
 
 }

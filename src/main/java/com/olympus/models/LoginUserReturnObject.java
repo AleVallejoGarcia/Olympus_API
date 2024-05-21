@@ -1,10 +1,13 @@
 package com.olympus.models;
 
+// This class represents the return object after user login
 public class LoginUserReturnObject {
-    private Long userId;
-    private String userName;
-    private boolean mailAndPasswordAreCorrect;
+    private Long userId; // Stores the ID of the user
+    private String userName; // Stores the name of the user
+    private boolean mailAndPasswordAreCorrect; // Indicates whether the email and password provided are correct
 
+
+    //Constructors
     public LoginUserReturnObject(){
     }
 
@@ -16,7 +19,7 @@ public class LoginUserReturnObject {
     }
 
 
-
+    //Getters and Setters
     public Long getuserId() {
         return userId;
     }

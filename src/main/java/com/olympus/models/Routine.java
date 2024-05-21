@@ -20,28 +20,30 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "routines")
+@Entity // Specifies that the class is an entity and is mapped to a database table
+@Table(name = "routines") // Specifies the name of the database table to be used for mapping
 public class Routine {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "routine_id")
-    private long routineId;
+    @Id // Specifies the primary key of the entity
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Specifies the generation strategy for the primary key values
+    @Column(name = "routine_id") // Specifies the column name in the database table
+    private long routineId; // Represents the ID of the routine
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = false, length = 40) // Specifies the column properties
     private String routineName;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "fk_user_id", nullable = false)
-    @JsonIgnore
-    private User user;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) // Specifies a many-to-one relationship with the User entity
+    @JoinColumn(name = "fk_user_id", nullable = false) // Specifies the join column in the database table
+    @JsonIgnore // Ignores the User property during JSON serialization
+    private User user; // Represents the user associated with the routine
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "routines")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private Set<Exercise> exercises = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "routines") // Specifies a many-to-many relationship with the Exercise entity
+    @OnDelete(action = OnDeleteAction.CASCADE) // Specifies the delete action to be taken on associated records
+    @JsonIgnore // Ignores the exercises property during JSON serialization
+    private Set<Exercise> exercises = new HashSet<>(); // Represents the exercises included in the routine
 
+
+    // Constructors
     public Routine() {
     }
 
@@ -50,6 +52,8 @@ public class Routine {
         this.routineName = routineName;
     }
 
+
+    // Getters and Setters
     public Long getRoutineId() {
         return routineId;
     }

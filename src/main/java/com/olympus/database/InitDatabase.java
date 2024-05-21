@@ -12,12 +12,14 @@ import com.olympus.services.ManyToOneService;
 
 @Component
 public class InitDatabase implements CommandLineRunner {
-        @Autowired
+
+        @Autowired // Injects an instance of ManyToOneService
         ManyToOneService oneToManyService;
 
-        @Autowired
+        @Autowired // Injects an instance of ManyToManyService
         ManyToManyService manyToManyService;
 
+        // Sample data for the database
         @Override
         public void run(String... args) throws Exception {
 
