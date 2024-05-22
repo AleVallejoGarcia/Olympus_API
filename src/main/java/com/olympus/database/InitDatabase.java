@@ -33,194 +33,194 @@ public class InitDatabase implements CommandLineRunner {
                 // Chest
                 Exercise dumbbellBenchPress = new Exercise("Dumbbell Bench Press",
                                 "Lie on a flat bench with a dumbbell in each hand. Extend your arms straight up, palms facing forward. Lower the dumbbells to the sides of your chest in a controlled motion. Push the dumbbells back up to the starting position.",
-                                "https://example.com/dumbbell_bench_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-bench-press/dumbbell-bench-press-800.jpg");
                 Exercise inclineDumbbellBenchPress = new Exercise("Incline Dumbbell Bench Press",
                                 "Lie on an incline bench with a dumbbell in each hand. Start with your arms extended straight up, palms facing forward. Lower the dumbbells to the sides of your chest, keeping your elbows at a 45-degree angle. Push the dumbbells back up to the starting position.",
-                                "https://example.com/incline_dumbbell_bench_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/incline-dumbbell-bench-press/incline-dumbbell-bench-press-800.jpg");
                 Exercise declineBarbellBenchPress = new Exercise("Decline Barbell Bench Press",
                                 "Lie on a decline bench with a barbell in your hands, palms facing forward. Lower the barbell to your chest, keeping your elbows at a 45-degree angle. Push the barbell back up to the starting position.",
-                                "https://example.com/decline_barbell_bench_press.jpg");
+                                "https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Decline-Barbell-Bench-Press-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4");
                 Exercise flatBarbellBenchPress = new Exercise("Flat Barbell Bench Press",
                                 "Lie on a flat bench with a barbell in your hands, palms facing forward. Lower the barbell to your chest, keeping your elbows at a 45-degree angle. Push the barbell back up to the starting position.",
-                                "https://example.com/flat_barbell_bench_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/bench-press/bench-press-800.jpg");
                 Exercise inclineBarbellBenchPress = new Exercise("Incline Barbell Bench Press",
                                 "Lie on an incline bench with a barbell in your hands, palms facing forward. Lower the barbell to your chest, keeping your elbows at a 45-degree angle. Push the barbell back up to the starting position.",
-                                "https://example.com/incline_barbell_bench_press.jpg");
+                                "https://s3assets.skimble.com/assets/2288561/image_iphone.jpg");
                 Exercise dumbbellFlyes = new Exercise("Dumbbell Flyes",
                                 "Lie on a flat bench with a dumbbell in each hand. Start with your arms extended straight up, palms facing each other. Lower the dumbbells to the sides of your chest, keeping your elbows at a 90-degree angle. Push the dumbbells back up to the starting position.",
-                                "https://example.com/dumbbell_flyes.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-fly/dumbbell-fly-800.jpg");
                 Exercise inclineDumbbellFlyes = new Exercise("Incline Dumbbell Flyes",
                                 "Lie on an incline bench with a dumbbell in each hand. Start with your arms extended straight up, palms facing each other. Lower the dumbbells to the sides of your chest, keeping your elbows at a 90-degree angle. Push the dumbbells back up to the starting position.",
-                                "https://example.com/incline_dumbbell_flyes.jpg");
+                                "https://static.strengthlevel.com/images/exercises/incline-dumbbell-fly/incline-dumbbell-fly-800.jpg");
                 Exercise dumbbellPullover = new Exercise("Dumbbell Pullover",
                                 "Lie on a flat bench with a dumbbell in each hand. Start with your arms extended straight up, palms facing forward. Lower the dumbbells to your chest, keeping your elbows at a 90-degree angle. Push the dumbbells back up to the starting position.",
-                                "https://example.com/dumbbell_pullover.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-pullover/dumbbell-pullover-800.jpg");
                 Exercise closeGripBenchPress = new Exercise("Close-Grip Bench Press",
                                 "Lie on a flat bench with a barbell in your hands, palms facing forward. Lower the barbell to your chest, keeping your elbows at a 90-degree angle. Push the barbell back up to the starting position.",
-                                "https://example.com/close_grip_bench_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/close-grip-bench-press/close-grip-bench-press-800.jpg");
                 Exercise barbellPullover = new Exercise("Barbell Pullover",
                                 "Lie on a flat bench with a barbell in your hands, palms facing forward. Start with your arms extended straight up. Lower the barbell to your chest, keeping your elbows at a 90-degree angle. Push the barbell back up to the starting position.",
-                                "https://example.com/barbell_pullover.jpg");
+                                "https://static.strengthlevel.com/images/exercises/bent-arm-barbell-pullover/bent-arm-barbell-pullover-800.jpg");
 
                 // Back
                 Exercise deadlift = new Exercise("Deadlift",
                                 "Start by standing with your feet shoulder-width apart and your knees slightly bent. Hold a barbell or dumbbells in front of your thighs with an overhand grip. Keeping your back straight, hinge at your hips and lower the weight toward the floor. Pause, then squeeze your glutes and raise your torso back to the starting position.",
-                                "https://example.com/deadlift.jpg");
+                                "https://www.garagegymreviews.com/wp-content/uploads/deadlift-muscles-worked.jpg");
                 Exercise romanianDeadlift = new Exercise("Romanian Deadlift",
                                 "Start by standing with your feet shoulder-width apart and your knees slightly bent. Hold a barbell or dumbbells in front of your thighs with an overhand grip. Keeping your back straight, hinge at your hips and lower the weight toward the floor. Pause, then squeeze your glutes and raise your torso back to the starting position.",
-                                "https://example.com/romanian-deadlift.jpg");
+                                "https://www.hertssportsvillage.co.uk/news-images/2022-Nov/rdl--4995.jpg");
                 Exercise hyperExtensions = new Exercise("Hyperextensions",
                                 "Lie face down on a hyperextension bench with your ankles secured. Place your hands behind your head or across your chest. Engage your glutes and lower back muscles to lift your torso up until it is in line with your legs. Pause, then lower your torso back down to the starting position.",
-                                "https://example.com/hyperextensions.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2016/10/45-degree-hyperextension.png");
                 Exercise latPulldown = new Exercise(
                                 "Lat Pulldown",
                                 "Sit on a lat pulldown machine and adjust the thigh pad so that your legs are secured. Grasp the bar with a wide overhand grip. Keep your chest up and your back straight as you pull the bar down toward your chest. Pause, then slowly return to the starting position.",
-                                "https://example.com/lat-pulldown.jpg");
+                                "https://static.strengthlevel.com/images/exercises/lat-pulldown/lat-pulldown-800.jpg");
                 Exercise sumoDeadlift = new Exercise(
                                 "Sumo Deadlift",
                                 "Stand with your feet shoulder-width apart and your knees slightly bent. Hold a barbell or dumbbells in front of your thighs with an overhand grip. Keeping your back straight, hinge at your hips and lower the weight toward the floor. Pause, then squeeze your glutes and raise your torso back to the starting position.",
-                                "https://example.com/sumo-deadlift.jpg");
+                                "https://static.strengthlevel.com/images/exercises/sumo-deadlift/sumo-deadlift-800.jpg");
                 Exercise barbellRow = new Exercise(
                                 "Barbell Row",
                                 "Lie face down on a bench with your feet secured. Hold a barbell or dumbbells with an overhand grip. Keeping your back straight, raise the weight toward your upper back by squeezing your shoulder blades together. Pause, then slowly lower the weight back to the starting position.",
-                                "https://example.com/barbell-row.jpg");
+                                "https://training.fit/wp-content/uploads/2020/02/rudern-langhantel.png");
                 Exercise seatedRow = new Exercise(
                                 "Seated Row",
                                 "Sit on a seated row machine and adjust the foot pads so that your legs are secured. Grasp the handles with an overhand grip. Keep your chest up and your back straight as you pull the handles toward your torso. Pause, then slowly return to the starting position.",
-                                "https://example.com/seated-row.jpg");
+                                "https://kinxlearning.com/cdn/shop/files/Seated_Row_500x.jpg?v=1613764022");
                 Exercise stiffLeggedDeadlift = new Exercise(
                                 "Stiff-Legged Deadlift",
                                 "Stand with your feet shoulder-width apart and your knees slightly bent. Hold a barbell or dumbbells in front of your thighs with an overhand grip. Keeping your back straight, hinge at your hips and lower the weight toward the floor. Pause, then squeeze your glutes and raise your torso back to the starting position.",
-                                "https://example.com/stiff-legged-deadlift.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2021/10/Dumbbell-Straight-Leg-Deadlift.png");
                 Exercise dumbbellRow = new Exercise(
                                 "Dumbbell Row",
                                 "Lie face down on a bench with your feet secured. Hold a dumbbell in each hand with an overhand grip. Keeping your back straight, lift the weights toward your lower back by squeezing your shoulder blades together. Pause, then slowly lower the weights back to the starting position.",
-                                "https://example.com/dumbbell-row.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-row/dumbbell-row-800.jpg");
                 Exercise cableRow = new Exercise(
                                 "Cable Row",
                                 "Sit on a cable row machine and adjust the foot pads so that your legs are secured. Grasp the handles with an overhand grip. Keep your chest up and your back straight as you pull the handles toward your torso. Pause, then slowly return to the starting position.",
-                                "https://example.com/cable-row.jpg");
+                                "https://static.strengthlevel.com/images/exercises/seated-cable-row/seated-cable-row-800.jpg");
 
                 // Biceps
 
                 Exercise standingBarbellCurl = new Exercise(
                                 "Standing Barbell Curl",
                                 "Stand with your feet shoulder-width apart, holding a barbell with an underhand grip, palms facing up. Keep your elbows close to your torso and exhale as you curl the barbell towards your shoulders. Inhale as you lower the weight back down to the starting position.",
-                                "https://example.com/standing_barbell_curl.jpg");
+                                "https://static.strengthlevel.com/images/exercises/barbell-curl/barbell-curl-800.jpg");
                 Exercise dumbbellHammerCurl = new Exercise(
                                 "Dumbbell Hammer Curl",
                                 "Stand with a dumbbell in each hand, arms fully extended by your sides, palms facing your body. Keep your elbows close to your torso and exhale as you curl the dumbbells upwards. Inhale as you lower the weights back down to the starting position.",
-                                "https://example.com/dumbbell_hammer_curl.jpg");
+                                "https://anabolicaliens.com/cdn/shop/articles/5fa2d13e06ae0ac61604ad32_hammer-curl.png?v=1641753307");
                 Exercise preacherCurl = new Exercise(
                                 "Preacher Curl",
                                 "Sit at a preacher bench, grasp an EZ-bar or dumbbells with an underhand grip, and place your upper arms against the preacher pad. Exhale as you curl the weight upwards, keeping your upper arms stationary. Inhale as you lower the weight back down to the starting position.",
-                                "https://example.com/preacher_curl.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2018/07/barbell-preacher-curl-resized.png");
                 Exercise inclineDumbbellCurl = new Exercise(
                                 "Incline Dumbbell Curl",
                                 "Lie back on an incline bench, holding a dumbbell in each hand, arms fully extended towards the floor, palms facing forward. Exhale as you curl the dumbbells upwards, keeping your upper arms stationary. Inhale as you lower the weights back down to the starting position.",
-                                "https://example.com/incline_dumbbell_curl.jpg");
+                                "https://www.aleanlife.com/wp-content/uploads/2022/12/incline-dumbbell-curl-1.jpg");
                 Exercise cableCurl = new Exercise(
                                 "Cable Curl",
                                 "Stand in front of a cable machine with a straight bar attached to the low pulley, grip the bar with an underhand grip, and position your feet shoulder-width apart. Exhale as you curl the bar towards your shoulders, keeping your elbows close to your torso. Inhale as you return the bar to the starting position.",
-                                "https://example.com/cable_curl.jpg");
+                                "https://i.pinimg.com/474x/27/0f/61/270f61813ad0664e30df018cefc5d51d.jpg");
                 Exercise chinUp = new Exercise(
                                 "Chin-Up",
                                 "Grab a pull-up bar with an underhand grip, hands shoulder-width apart. Hang freely with your arms fully extended. Exhale as you pull yourself up, bringing your chin over the bar. Inhale as you lower yourself back down to the starting position.",
-                                "https://example.com/chin_up.jpg");
+                                "https://kinxlearning.com/cdn/shop/files/shutterstock_418630567_1400x.jpg?v=1690650014");
 
                 // Triceps
                 Exercise tricepPushdown = new Exercise(
                                 "Tricep Pushdown",
                                 "Stand in front of a cable machine with a straight bar attached to the high pulley. Grasp the bar with an overhand grip and position your elbows at your sides. Push the bar downward until your elbows are fully extended, then return to the starting position.",
-                                "https://example.com/tricep_pushdown.jpg");
+                                "https://static.strengthlevel.com/images/exercises/tricep-pushdown/tricep-pushdown-800.jpg");
                 Exercise closeGripBenchPressTri = new Exercise(
                                 "Close Grip Bench Press",
                                 "Lie on a flat bench and grip the barbell with your hands placed closer than shoulder-width apart. Lower the bar to your chest, then press it back up to the starting position.",
-                                "https://example.com/close_grip_bench_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/close-grip-bench-press/close-grip-bench-press-800.jpg");
                 Exercise tricepDips = new Exercise(
                                 "Tricep Dips",
                                 "Position your hands shoulder-width apart on parallel bars. Lower your body by bending your elbows, then push yourself back up to the starting position.",
-                                "https://example.com/tricep_dips.jpg");
+                                "https://qph.cf2.quoracdn.net/main-qimg-cf2058c891a58de973cc146af500a09e-lq");
                 Exercise overheadTricepExtension = new Exercise(
                                 "Overhead Tricep Extension",
                                 "Hold a dumbbell with both hands and raise it overhead. Lower the dumbbell behind your head by bending your elbows, then extend your arms to raise it back up.",
-                                "https://example.com/overhead_tricep_extension.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2021/10/Seated-two-arm-overhead-dumbbell-triceps-extension.png");
                 Exercise skullCrushers = new Exercise(
                                 "Skull Crushers",
                                 "Lie on a flat bench with a barbell or dumbbells in your hands. Lower the weight towards your forehead by bending your elbows, then extend your arms to raise it back up.",
-                                "https://example.com/skull_crushers.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2018/06/decline-ez-bar-skull-crusher-resized.png");
                 Exercise tricepKickbacks = new Exercise(
                                 "Tricep Kickbacks",
                                 "Hold a dumbbell in one hand and place your opposite knee and hand on a bench for support. Extend your arm backward, keeping your upper arm parallel to your body, then return to the starting position.",
-                                "https://example.com/tricep_kickbacks.jpg");
+                                "https://samarpanphysioclinic.com/wp-content/uploads/2023/06/tricep-kickback-exercise-1200x675.webp");
 
                 // Shoulder
                 Exercise shoulderPress = new Exercise(
                                 "Shoulder Press",
                                 "Shoulder press is a basic exercise for developing the deltoid muscles of the shoulder.",
-                                "https://example.com/shoulder_press.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2016/05/Dumbbell-Shoulder-Press-resized.png");
                 Exercise lateralRaises = new Exercise(
                                 "Lateral Raises",
                                 "Lateral raises target the lateral deltoid muscles, which are responsible for shoulder abduction.",
-                                "https://example.com/lateral_raises.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-lateral-raise/dumbbell-lateral-raise-800.jpg");
                 Exercise frontRaises = new Exercise(
                                 "Front Raises",
                                 "Front raises primarily target the anterior deltoids, which are responsible for shoulder flexion.",
-                                "https://example.com/front_raises.jpg");
+                                "https://static.strengthlevel.com/images/exercises/dumbbell-front-raise/dumbbell-front-raise-800.jpg");
                 Exercise uprightRows = new Exercise(
                                 "Upright Rows",
                                 "Upright rows target the deltoids, trapezius, and the muscles of the upper back.",
-                                "https://example.com/upright_rows.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2022/11/EZ-bar-wide-grip-upright-row.png");
                 Exercise arnoldPress = new Exercise(
                                 "Arnold Press",
                                 "Arnold press is a variation of the shoulder press that involves rotating the wrists as the weights are lifted.",
-                                "https://example.com/arnold_press.jpg");
+                                "https://mundoentrenamiento.com/wp-content/uploads/2021/08/press-arnold.webp");
                 Exercise bentOverLateralRaises = new Exercise(
                                 "Bent-Over Lateral Raises",
                                 "Bent-over lateral raises target the rear deltoids, which are responsible for shoulder extension.",
-                                "https://example.com/bent_over_lateral_raises.jpg");
+                                "https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1637854057142-9SR2NT262PFV6IA63F2I/Standing%2BBent%2BOver%2BLateral%2BRaises.jpeg");
 
                 // Legs
                 Exercise squat = new Exercise(
                                 "Squat",
                                 "Start by standing with your feet shoulder-width apart. Lower your body as if you were sitting back into a chair, keeping your weight on your heels. Push through your heels to return to the starting position.",
-                                "https://example.com/squat.jpg");
+                                "https://i.pinimg.com/564x/03/26/d7/0326d7b45b446e43a61e7bef949daa5a.jpg");
                 Exercise barbellSquat = new Exercise(
                                 "Barbell Squat",
                                 "Place a barbell on your upper back and stand with your feet shoulder-width apart. Lower your body until your thighs are parallel to the floor, then push through your heels to return to the starting position.",
-                                "https://example.com/barbell_squat.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2016/10/barbell-squat-resized-FIXED-2.png");
                 Exercise legPress = new Exercise(
                                 "Leg Press",
                                 "Using a leg press machine, place your feet shoulder-width apart on the platform. Push the platform away from you until your legs are almost fully extended, then lower the platform back down.",
-                                "https://example.com/leg_press.jpg");
+                                "https://static.strengthlevel.com/images/exercises/sled-leg-press/sled-leg-press-800.jpg");
                 Exercise dumbbellLunges = new Exercise(
                                 "Dumbbell Lunges",
                                 "Stand with your feet shoulder-width apart and hold a dumbbell in each hand. Step forward with one leg and lower your body until your front knee is bent at a 90-degree angle, then push through your front heel to return to the starting position.",
-                                "https://example.com/dumbbell_lunges.jpg");
+                                "https://images.squarespace-cdn.com/content/v1/5ffcea9416aee143500ea103/1638425716168-GMKJB64MCPI0R9FWOB2U/Dumbbell%2BLunges.jpeg");
                 Exercise legExtensions = new Exercise(
                                 "Leg Extensions",
                                 "Sit on a leg extension machine and place your ankles under the padded bar. Extend your legs until they are straight, then lower them back down.",
-                                "https://example.com/leg_extensions.jpg");
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzHbfJ9fT6sMf_tlwq1BpDfiVBS3CAj-lsW3F5RJqstg&s");
                 Exercise lyingLegCurl = new Exercise(
                                 "Lying Leg Curl",
                                 "Lie face down on the machine with your legs straight. Curl your legs up towards your glutes, then slowly lower them back down.",
-                                "example_url_image_1.jpg");
+                                "https://www.burnthefatinnercircle.com/members/images/1255.jpg?cb=20240423044640");
                 Exercise seatedLegCurl = new Exercise(
                                 "Seated Leg Curl",
                                 "Sit on the machine with your legs straight. Curl your legs up towards your glutes, then slowly lower them back down.",
-                                "example_url_image_2.jpg");
+                                "https://static.strengthlevel.com/images/exercises/seated-leg-curl/seated-leg-curl-800.jpg");
                 Exercise romanianDeadliftLeg = new Exercise(
                                 "Romanian Deadlift",
                                 "Stand with your feet hip-width apart, holding a barbell in front of your thighs. Hinge at the hips to lower the barbell towards the floor, then return to the starting position.",
-                                "example_url_image_3.jpg");
+                                "https://weighttraining.guide/wp-content/uploads/2016/10/Barbell-Romanian-Deadlift.png");
                 Exercise standingCalfRaise = new Exercise(
                                 "Standing Calf Raise",
                                 "Stand with the balls of your feet on a sturdy surface, like a step or weight plate. Rise up onto your toes as high as possible, then lower your heels below the surface. Repeat.",
-                                "example_url_image here with string type");
+                                "https://fitnessvolt.com/wp-content/uploads/2021/02/dumbbell-standing-calf-raise.jpg");
                 Exercise seatedCalfRaise = new Exercise(
                                 "Seated Calf Raise",
                                 "Sit on a bench or machine with your feet flat on the floor and a weight on top of your knees. Rise up onto your toes as high as possible, then lower your heels below the surface. Repeat.",
-                                "example_url_image here with string type");
+                                "https://static.strengthlevel.com/images/exercises/seated-calf-raise/seated-calf-raise-800.jpg");
 
                 Achievement achievement1 = new Achievement(
                                 "Complete 10 workouts in a month",
