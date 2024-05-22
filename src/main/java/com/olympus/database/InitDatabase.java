@@ -1,12 +1,19 @@
 package com.olympus.database;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.olympus.models.Achievement;
+import com.olympus.models.Admin;
 import com.olympus.models.Exercise;
 import com.olympus.models.MuscleZone;
+import com.olympus.models.User;
+import com.olympus.repositories.AdminRepository;
+import com.olympus.repositories.UserRepository;
 import com.olympus.services.ManyToManyService;
 import com.olympus.services.ManyToOneService;
 
@@ -18,6 +25,12 @@ public class InitDatabase implements CommandLineRunner {
 
         @Autowired // Injects an instance of ManyToManyService
         ManyToManyService manyToManyService;
+
+        @Autowired
+        UserRepository userRepository;
+
+        @Autowired
+        AdminRepository adminRepository;
 
         // Sample data for the database
         @Override
@@ -253,6 +266,10 @@ public class InitDatabase implements CommandLineRunner {
                                 "Complete 1000 squats in a month",
                                 "./../assets/images/achievement10.png");
 
+                User defaultUser = new User("Ricardo", "ricardocoleman@email.com", "123", 180, 180);
+
+                Admin defaultAdmin = new Admin("Vallejo", "avg@email.com", "123");
+
                 dumbbellBenchPress.setMucleZone(chest);
                 inclineDumbbellBenchPress.setMucleZone(chest);
                 declineBarbellBenchPress.setMucleZone(chest);
@@ -368,6 +385,32 @@ public class InitDatabase implements CommandLineRunner {
                 standingCalfRaise = oneToManyService.saveExercise(standingCalfRaise);
                 seatedCalfRaise = oneToManyService.saveExercise(seatedCalfRaise);
 
+                Set<Achievement> achievements = new HashSet<>();
+                achievements.add(achievement1);
+                achievements.add(achievement2);
+                achievements.add(achievement3);
+                achievements.add(achievement4);
+                achievements.add(achievement5);
+                achievements.add(achievement6);
+                achievements.add(achievement7);
+                achievements.add(achievement8);
+                achievements.add(achievement9);
+                achievements.add(achievement10);
+                defaultUser.setAchievements(achievements);
+
+                Set<User> users = new HashSet<>();
+                users.add(defaultUser);
+                achievement1.setUsers(users);
+                achievement2.setUsers(users);
+                achievement3.setUsers(users);
+                achievement4.setUsers(users);
+                achievement5.setUsers(users);
+                achievement6.setUsers(users);
+                achievement7.setUsers(users);
+                achievement8.setUsers(users);
+                achievement9.setUsers(users);
+                achievement10.setUsers(users);
+
                 achievement1 = manyToManyService.saveAchievement(achievement1);
                 achievement2 = manyToManyService.saveAchievement(achievement2);
                 achievement3 = manyToManyService.saveAchievement(achievement3);
@@ -378,5 +421,8 @@ public class InitDatabase implements CommandLineRunner {
                 achievement8 = manyToManyService.saveAchievement(achievement8);
                 achievement9 = manyToManyService.saveAchievement(achievement9);
                 achievement10 = manyToManyService.saveAchievement(achievement10);
+
+                defaultUser = manyToManyService.saveUser(defaultUser);
+                defaultAdmin = adminRepository.save(defaultAdmin);
         }
 }
