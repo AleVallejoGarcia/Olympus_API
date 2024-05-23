@@ -24,7 +24,8 @@ public class AdminController {
     @Autowired // Injects an instance of AdminRepository
     AdminRepository adminRepository;
 
-    // Handler method to delete an admin by ID
+    // Handler method to delete an admin by ID Parameters: adminId (Long): The ID of
+    // the admin to delete.
     @DeleteMapping("/admins/{adminId}")
     public void deleteAdmin(@PathVariable Long adminId) {
         try {
@@ -34,18 +35,22 @@ public class AdminController {
         }
     }
 
-    // Handler method to verify admin credentials
+    // Handler method to verify admin credentials Parameters: adminRequest
+    // (LoginAdminInformation): The login information of the admin to verify.
+    // Return: boolean: true if the admin credentials are valid; otherwise, false.
     @PostMapping("/admins/verifyAdmin")
     public boolean verifyAdmin(@RequestBody LoginAdminInformation adminRequest) {
         Admin adminToVerify = adminRepository.findByAdminMail(adminRequest.getadminMail());
-        if (adminToVerify != null && adminRequest.getadminPassword().equals(adminToVerify.getadminPassword()) ) {
+        if (adminToVerify != null && adminRequest.getadminPassword().equals(adminToVerify.getadminPassword())) {
             return true;
         } else {
             return false;
         }
     }
 
-    // Handler method to update an admin by ID
+    // Handler method to update an admin by ID Parameters: adminId (Long): The ID of
+    // the admin to update. adminRequest (Admin): The updated admin
+    // information.Return: Admin: The updated admin entity.
     @PutMapping("/admins/{adminId}")
     public Admin updateAdminById(@PathVariable Long adminId, @RequestBody Admin adminRequest) {
         return adminRepository.findById(adminId).map(admin -> {
@@ -58,7 +63,8 @@ public class AdminController {
                 () -> new ResourceNotFoundException("User not found with id " + adminId));
     }
 
-    // Handler method to create a new admin
+    // Handler method to create a new admin Parameters userRequest (Admin): The
+    // admin information for creation.Return Admin: The created admin entity.
     @PostMapping("/admin")
     public Admin createAdmin(@RequestBody Admin userRequest) {
         return adminRepository.save(userRequest);

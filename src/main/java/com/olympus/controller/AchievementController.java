@@ -29,25 +29,33 @@ public class AchievementController {
     @Autowired // Injects an instance of UserRepository
     UserRepository userRepository;
 
-    // Handler method to retrieve all achievements
+    // Handler method to retrieve all achievements Retrieves all
+    // achievements. Return: List: A list of all achievements.
     @GetMapping("/achievements")
     public List<Achievement> getAllAchievements() {
         return achievementsRepository.findAll();
     }
 
-    // Handler method to retrieve a specific achievement by ID
+    // Handler method to retrieve a specific achievement by ID Parameters:
+    // achievementId (Long): The ID of the achievement to retrieve.Return: Optional:
+    // The achievement with the specified ID, if found.
     @GetMapping("/achievements/{achievementId}")
     public Optional<Achievement> getAchievementByAchievementId(@PathVariable Long achievementId) {
         return achievementsRepository.findById(achievementId);
     }
 
-    // Handler method to retrieve all achievements of a specific user
+    // Handler method to retrieve all achievements of a specific user Parameters:
+    // userId (Long): The ID of the user whose achievements to retrieve.Return:
+    // List: A list of achievements associated with the specified user.
     @GetMapping("/{userId}/achievements")
     public List<Achievement> getAchievementsByUser(@PathVariable Long userId) {
         return achievementsRepository.findByUser_UserId(userId);
     }
 
-    // Handler method to add an achievement to a user
+    // Handler method to add an achievement to a userParameters: achievementId
+    // (Long): The ID of the achievement to add. userId (Long): The ID of the user
+    // to whom the achievement will be added.Return: Achievement: The added
+    // achievement.
     @PostMapping("/achievements/{achievementId}/users/{userId}")
     public Achievement addAchievementToUser(@PathVariable(name = "achievementId") Long achievementId,
             @PathVariable(name = "userId") Long userId) {
@@ -63,7 +71,9 @@ public class AchievementController {
         return achievementsRepository.save(achievement.get());
     }
 
-    // Handler method to remove an achievement from a user
+    // Handler method to remove an achievement from a user Parameters: achievementId
+    // (Long): The ID of the achievement to remove.userId (Long): The ID of the user
+    // from whom the achievement will be removed.
     @DeleteMapping("/achievements/{achievementId}/users/{userId}")
     public void removeAchievementFromUser(@PathVariable(name = "achievementId") Long achievementId,
             @PathVariable(name = "userId") Long userId) {

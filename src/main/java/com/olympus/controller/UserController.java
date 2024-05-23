@@ -27,32 +27,40 @@ public class UserController {
     @Autowired // Injects an instance of UserRepository
     UserRepository userRepository;
 
-    // Handler method to retrieve all users
+    // Handler method to retrieve all users Return: List: A list of all users.
     @GetMapping("/user")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // Handler method to verify user login credentials
+    // Handler method to verify user login credentials Parameters: userRequest
+    // (LoginUserInformation): The login information of the user to verify.
+    // Return: LoginUserReturnObject: An object indicating whether the user
+    // credentials are valid.
     @PostMapping("/user/verifyUser")
     public LoginUserReturnObject verifyUser(@RequestBody LoginUserInformation userRequest) {
         User userToVerify = userRepository.findByUserMail(userRequest.getuserMail());
-        LoginUserReturnObject userIsCorrect = new LoginUserReturnObject(userToVerify.getUserId(), userToVerify.getuserName(), true);
+        LoginUserReturnObject userIsCorrect = new LoginUserReturnObject(userToVerify.getUserId(),
+                userToVerify.getuserName(), true);
         LoginUserReturnObject userIsNotCorrect = new LoginUserReturnObject(0L, "", false);
-        if (userToVerify != null && userRequest.getuserPassword().equals(userToVerify.getuserPassword()) ) {
-             return userIsCorrect;
-         } else {
-             return userIsNotCorrect;
-         }
+        if (userToVerify != null && userRequest.getuserPassword().equals(userToVerify.getuserPassword())) {
+            return userIsCorrect;
+        } else {
+            return userIsNotCorrect;
+        }
     }
 
-    // Handler method to create a new user
+    // Handler method to create a new user Parameters: userRequest (User): The user
+    // information for creation.
+    // Return: User: The created user.
     @PostMapping("/user")
     public User createUser(@RequestBody User userRequest) {
         return userRepository.save(userRequest);
     }
 
-    // Handler method to update user information by user ID
+    // Handler method to update user information by user ID Parameters:
+    // userId(Long): The ID of the user to update. userRequest (User): The updated
+    // user information. Return: User The updated user entity.
     @PutMapping("/user/{userId}")
     public User updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
         return userRepository.findById(userId).map(user -> {
@@ -67,7 +75,8 @@ public class UserController {
                 () -> new ResourceNotFoundException("User not found with id " + userId));
     }
 
-    // Handler method to delete a user by user ID
+    // Handler method to delete a user by user ID Parameters: userId (Long): The ID
+    // of the user to delete.
     @DeleteMapping("/user/{userId}")
     public void deleteUser(@PathVariable Long userId) {
         try {

@@ -7,6 +7,8 @@ import com.olympus.models.Admin;
 
 @Repository // Indicates that this interface is a repository component
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-	// Query method to find an admin by email
+	// Query method to find an admin by email Parameters: adminMail (String): The
+	// administrator's email address.Return: The administrator corresponding to the
+	// given email.
 	Admin findByAdminMail(String adminMail);
 }

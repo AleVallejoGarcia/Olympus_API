@@ -19,7 +19,6 @@ public class MuscleZone {
     @Column(nullable = false, length = 40) // Specifies the column properties
     private String muscleName; // Represents the name of the muscle zone
 
-
     // Constructors
     public MuscleZone() {
     }
@@ -29,23 +28,28 @@ public class MuscleZone {
         this.muscleName = muscleName;
     }
 
-
     // Getters and Setters
+    // Get the ID of the muscle zone. Returns: The ID of the muscle area (Long).
     public Long getMuscleZoneId() {
         return muscleZoneId;
     }
 
+    // Sets the ID of the muscle zone. Parameters: muscleZoneId (Long): The ID of
+    // the muscle zone.
     public void setId(Long id) {
         this.muscleZoneId = id;
     }
 
+    // Get the name of the muscle area. Returns: The name of the muscle zone
+    // (String).
     public String getmuscleName() {
         return muscleName;
     }
 
+    // Sets the name of the muscle area.Parameters: muscleName (String): The name of
+    // the muscle zone.
     public void setmuscleName(String muscleName) {
         this.muscleName = muscleName;
     }
 
-    
 }

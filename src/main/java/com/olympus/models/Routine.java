@@ -37,11 +37,17 @@ public class Routine {
     @JsonIgnore // Ignores the User property during JSON serialization
     private User user; // Represents the user associated with the routine
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "routines") // Specifies a many-to-many relationship with the Exercise entity
+    @ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "routines") // Specifies
+                                                                                                                     // a
+                                                                                                                     // many-to-many
+                                                                                                                     // relationship
+                                                                                                                     // with
+                                                                                                                     // the
+                                                                                                                     // Exercise
+                                                                                                                     // entity
     @OnDelete(action = OnDeleteAction.CASCADE) // Specifies the delete action to be taken on associated records
     @JsonIgnore // Ignores the exercises property during JSON serialization
     private Set<Exercise> exercises = new HashSet<>(); // Represents the exercises included in the routine
-
 
     // Constructors
     public Routine() {
@@ -52,36 +58,49 @@ public class Routine {
         this.routineName = routineName;
     }
 
-
     // Getters and Setters
+
+    // Gets the ID of the routine. Returns: The ID of the routine (Long).
     public Long getRoutineId() {
         return routineId;
     }
 
+    // Sets the ID of the routine. Parameters: routineId (Long): The ID of the
+    // routine.
     public void setId(Long id) {
         this.routineId = id;
     }
 
+    // Get the name of the routine.Returns: The name of the routine (String).
     public String getroutineName() {
         return routineName;
     }
 
+    // Sets the name of the routine. Parameters: routineName (String): The name of
+    // the routine.
     public void setName(String routineName) {
         this.routineName = routineName;
     }
 
+    // Gets the user associated with the routine. Returns: The associated user.
     public User getUser() {
         return user;
     }
 
+    // Sets the user associated with the routine. Parameters: user (User): The
+    // associated user.
     public void setUser(User user) {
         this.user = user;
     }
 
+    // Gets the exercises included in the routine. Returns: The exercises included
+    // in the routine (Set).
     public Set<Exercise> getExercises() {
         return exercises;
     }
 
+    // Sets the exercises included in the routine. Parameters: exercises (Set): The
+    // exercises included in the routine.
     public void setExercises(Set<Exercise> exercises) {
         this.exercises = exercises;
     }

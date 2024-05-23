@@ -19,7 +19,7 @@ public class Admin {
     @Column(nullable = false, length = 30) // Specifies the column properties
     private String adminName;
 
-    @Column(nullable = false, length = 20 , unique = true) // Specifies the column properties
+    @Column(nullable = false, length = 20, unique = true) // Specifies the column properties
     private String adminMail; // Admin's email (must be unique)
 
     @Column(nullable = false, length = 20) // Specifies the column properties
@@ -38,34 +38,48 @@ public class Admin {
 
     // Getters and Setters
 
+    // Gets the ID of the administrator. Returns: The administrator ID (Long).
     public Long getAdminId() {
         return adminId;
     }
 
+    // Sets the ID of the administrator. Parameters: id (Long): The ID of the
+    // administrator.
     public void setId(Long id) {
         this.adminId = id;
     }
 
+    // Get the name of the administrator.Returns: The name of the administrator
+    // (String).
     public String getadminName() {
         return adminName;
     }
 
+    // Sets the name of the administrator. Parameters: adminName (String): The name
+    // of the administrator.
     public void setadminName(String adminName) {
         this.adminName = adminName;
     }
 
+    // Get the admin's email address. Returns: The email address of the
+    // administrator (String).
     public String getadminMail() {
         return adminMail;
     }
 
+    // Sets the admin email. Parameters: adminMail (String): The administrator's
+    // email address.
     public void setadminMail(String adminMail) {
         this.adminMail = adminMail;
     }
 
+    // Get the administrator password. Returns: The administrator password (String).
     public String getadminPassword() {
         return adminPassword;
     }
 
+    // Sets the administrator password. Parameters: adminPassword (String): The
+    // password of the administrator.
     public void setadminPassword(String adminPassword) {
         this.adminPassword = adminPassword;
     }

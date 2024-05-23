@@ -21,13 +21,16 @@ public class MuscleZoneController {
     @Autowired // Injects an instance of MuscleZoneRepository
     MuscleZoneRepository muscleZoneRepository;
 
-    // Handler method to retrieve all muscle zones
+    // Handler method to retrieve all muscle zones Return: List: A list of all
+    // musclezones.
     @GetMapping("/muscle_zone")
     public List<MuscleZone> getAllMuscleZones() {
         return muscleZoneRepository.findAll();
     }
 
-    // Handler method to retrieve a muscle zone by ID
+    // Handler method to retrieve a muscle zone by ID Parameters muscleZoneId
+    // (Long): The ID of the muscle zone to retrieve. Return Optional: The muscle
+    // zone with the specified ID, if found.
     @GetMapping("/muscle_zone/{muscleZoneId}")
     public Optional<MuscleZone> getMuscleZonesByMuscleZoneId(@PathVariable Long muscleZoneId) {
         return muscleZoneRepository.findById(muscleZoneId);
